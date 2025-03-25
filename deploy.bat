@@ -1,5 +1,8 @@
 set rootDir=%~dp0
 set packDir=%rootDir%.packaged\
+set deployDir=C:\Users\choco.EUCLID\Sync\Shared\Ghys\
+
+set packName=PyLab.zip
 
 :: Ensure .package directory exists and clean.
 if not exist "%packDir%" (
@@ -17,6 +20,10 @@ xcopy "%rootDir%tinyengine\" "%packDir%tinyengine\" /E /Y
 copy "%rootDir%__init__.py" "%packDir%__init__.py" /Y
 copy "%rootDir%requirements.txt" "%packDir%requirements.txt" /Y
 copy "%rootDir%setup.bat" "%packDir%setup.bat" /Y
+copy "%rootDir%update.bat" "%packDir%setup.bat" /Y
 
 :: Zip the package contents
-7z a -tzip "%rootDir%PyLab.zip" "%packDir%*"
+7z a -tzip "%rootDir%%packName%" "%packDir%*"
+
+:: Copy to deployment location
+copy "%rootDir%%packName%" "%deployDir%%packName%"
