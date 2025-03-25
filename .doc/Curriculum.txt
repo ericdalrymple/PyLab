@@ -1,0 +1,14 @@
+What is programming/coding?
+
+    Asking a computer to do something by giving it instructions.
+
+    Computers can understand instructions when they are written in programming languages.
+
+    Python is the language that we will use to give the computer instructions, but there are many other programming languages that exist.
+
+    Instructions can be very simple like "add two numbers together", or "print some text", but instructions can be combined to make very
+    compicated things like calculating the path of a rocket going to space.
+
+
+Basics of Python
+

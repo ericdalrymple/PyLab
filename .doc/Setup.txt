@@ -1,0 +1,19 @@
+1. Install Python.
+    - https://www.python.org/downloads/
+    - Add env path at top
+        %USERPROFILE%\AppData\Local\Programs\Python\Python313
+        %USERPROFILE%\AppData\Local\Programs\Python\Launcher
+
+2. Install pip
+    - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    - python get-pip.py
+    - Add env path
+        %USERPROFILE%\AppData\Local\Programs\Python\Python313\Scripts
+
+3. Install Visual Studio Code form Microsoft Store
+    3a. Install "Python" plugin
+
+4. Open project
+    4a. pip install requirements.txt
+    4b. Add path to PyLab to PYTHONPATH env variable.
+        %USERPROFILE%\Workshop\PyLab
