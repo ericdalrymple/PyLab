@@ -15,28 +15,33 @@
 # Let's see this in action!
 
 
+# Ask the player to choose an object.
 print("You are walking down a road and you see two objects on the ground, but you can only carry one. Which one do you pick up?")
 print("1 - Apple")
 print("2 - Stick")
 
 object_choice = input("Which do you choose? (Type the number): ")
 
+has_apple = object_choice == "1"
+has_stick = object_choice == "2"
+
 print()
 
+
+# Ask the player to choose a direction.
 print("You continue to walk and you come to a fork in the road. Which direction do you take?")
 print("1 - Left")
 print("2 - Right")
 
 direction_choice = input("Which do you choose? (Type the number): ")
 
-has_apple = object_choice == "1"
-has_stick = object_choice == "2"
-
 went_left = direction_choice == "1"
 went_right = direction_choice == "2"
 
 print()
 
+
+# Tell the player the outcome of the story.
 if has_apple and went_left:
     print("You find a horse and feed it the apple. It lets you ride it and you become lifelong friends.")
 
