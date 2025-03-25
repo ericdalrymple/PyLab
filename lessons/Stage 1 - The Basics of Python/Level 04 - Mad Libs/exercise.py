@@ -7,7 +7,7 @@
 #       - Ask questions to the player   (Level 03)
 #       - Print many things in a row    (Level 04)
 #
-#   So let's try to use the things we learned to write a Mad Libe game!
+#   So let's try to use the things we learned to write a Mad Libs game!
 #
 #   In this programe, ask the player to enter these types of words:
 #       A) An animal
@@ -20,7 +20,7 @@
 #       H) An object
 #       I) A nickname
 #
-#   Change the print instruction so that the player's answers become part of the story. You
+#   Change the print instruction below so that the player's answers become part of the story. You
 #   can replace the words between <> by the player's answers.
 #
 # ================================================================================================== #
