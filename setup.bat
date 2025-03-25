@@ -2,11 +2,19 @@
 
 setlocal enabledelayedexpansion
 
+if not exist "%~dp0.setup" (
+    mkdir ""%~dp0.setup"
+)
+
+pause
+
 echo.
 echo "=================> Installing Python..."
 
+echo "Securing Python installer..."
+curl "https://www.python.org/ftp/python/3.13.2/python-3.13.2-amd64.exe" -o .\.setup\python-3.13.2-amd64.exe
 echo "Launching Python installer..."
-start /wait %~dp0\.setup\python-3.13.2-amd64.exe
+start /wait .\.setup\python-3.13.2-amd64.exe
 echo "Python installer terminated."
 
 
@@ -16,8 +24,10 @@ echo.
 echo.
 echo "=================> Installing Visual Studio Code..."
 
+echo "Securing VSCode installer..."
+curl -L -o .\.setup\VSCodeUserSetup-x64-1.98.2.exe "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
 echo "Launching VSCode installer..."
-start /wait %~dp0\.setup\VSCodeUserSetup-x64-1.98.2.exe
+start /wait .\.setup\VSCodeUserSetup-x64-1.98.2.exe
 echo "VSCode installer terminated."
 
 
