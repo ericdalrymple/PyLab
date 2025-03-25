@@ -11,9 +11,10 @@ class Entity(tinyengine.abstractentity.AbstractEntity):
     active = True
     visible = True
 
+    _children : list[tinyengine.abstractentity.AbstractEntity] = []
     _components : list[tinyengine.component.Component] = []
     
-    def __init__(self, startX : float, startY : float, components : list[tinyengine.component.Component]):
+    def __init__(self, startX : float = 0.0, startY : float = 0.0, components : list[tinyengine.component.Component] = []):
         super().__init__(pygame.Vector2(startX, startY))
         
         self._components = components
