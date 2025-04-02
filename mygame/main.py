@@ -46,7 +46,8 @@ class MyGame(tinyengine.Game):
         # Setup the game
         self.world.add_objects(
             MyButton(x=10, y=10, width=200, height=25, text="My Button"),
-            Player())
+            Player(),
+            tinyengine.Image(300, 100, ".\\images\\character.png"))
 
         #self.world.add_object(tinyengine.Entity(
         #    400, 300,
