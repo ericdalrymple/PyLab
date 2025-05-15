@@ -28,9 +28,9 @@ ImageDrawable = tinyengine.components.imagedrawable.ImageDrawable
 
 
 # Math
-import tinyengine.math.matrix22
+import tinyengine.math.matrix
 
-Matrix22 = tinyengine.math.matrix22.Matrix22
+Matrix33 = tinyengine.math.matrix.Matrix33
 
 
 # Object
