@@ -19,12 +19,13 @@ class ImageDrawable(tinyengine.component.Component):
 
 
     def draw(self, surface):
+        pos : pygame.Vector2 = self.entity.transform.get_world_position()
         width = self._image.get_rect().width
         height = self._image.get_rect().height
         surface.blit(
             self._image,
-            (self.entity.position.x - (width >> 1),
-             self.entity.position.y - (height >> 1),
+            (pos.x - (width >> 1),
+             pos.y - (height >> 1),
              width,
              height)
         )

@@ -1,6 +1,4 @@
 import pygame
-import pygame.gfxdraw
-import pygame.surface
 import tinyengine
 from tinyengine.helpers.textrenderer import *
 
@@ -38,8 +36,9 @@ class Button(tinyengine.Entity):
 
 
     def __contains_point__(self, point : tuple):
-        left = self.position.x
-        top = self.position.y
+        pos : pygame.Vector2 = self.transform.get_world_position()
+        left = pos.x
+        top = pos.y
         right = left + self.size[0]
         bottom = top + self.size[1]
 
@@ -81,14 +80,15 @@ class Button(tinyengine.Entity):
         super().start()
 
     def draw(self, surface):
-        
+        pos : pygame.Vector2 = self.transform.get_world_position()
+
         # Draw
         pygame.draw.rect(
             surface,
             color=self._currentColor,
             rect=(
-                int(self.position.x),
-                int(self.position.y),
+                int(pos.x),
+                int(pos.y),
                 self.size[0],
                 self.size[1]),
             width=0,
@@ -101,8 +101,8 @@ class Button(tinyengine.Entity):
         # Draw the text for the mouse position
         self._textRenderer.draw(
             surface,
-            int(self.position.x + (self.size[0] * 0.5)),
-            int(self.position.y + (self.size[1] * 0.5)))
+            int(pos.x + (self.size[0] * 0.5)),
+            int(pos.y + (self.size[1] * 0.5)))
         
 
     def update(self, deltaTime):

@@ -1,4 +1,5 @@
 import math
+import pygame
 import tinyengine
 import tinyengine.math.matrix
 
@@ -7,6 +8,7 @@ class Transform():
     _parent:'Transform' = None
 
     _local: tinyengine.math.matrix.Matrix33 = tinyengine.math.matrix.identity()
+    _world: tinyengine.math.matrix.Matrix33 = tinyengine.math.matrix.identity()
 
     _x: float = 0.0
     _y: float = 0.0
@@ -29,27 +31,35 @@ class Transform():
         self._dirty = True
 
     
-    def get_global(self) -> tinyengine.math.matrix.Matrix33:
-        if self._parent is None:
-            return self.get_local()
-        else:
-            parent_m: tinyengine.Matrix33 = self._parent.get_global()
-            return parent_m.multiply(self.get_local())
+    def get_world(self) -> tinyengine.math.matrix.Matrix33:
+        if self.is_dirty():
+            # If the transform stack is dirty, we need to recompute the world transform.
+            self._world = self.get_local()
+            if not self._parent is None:
+                self._world = self._parent.get_world().multiply(self.get_local())
+        
+        return self._world
+    
+
+    def get_world_position(self) -> pygame.Vector2:
+        # Get the world position from the world transform.
+        world_m = self.get_world()
+        return pygame.Vector2(world_m._m[0][2], world_m._m[1][2])
 
     
     def get_local(self) -> tinyengine.math.matrix.Matrix33:
-        if (self._dirty):
+        if self._dirty:
+            # Compose the local transform.
             translated = tinyengine.math.matrix.from_position(self._x, self._y)
             rotated = tinyengine.math.matrix.from_rotation(self._rotation)
             scaled = tinyengine.math.matrix.from_scale(self._scale_x, self._scale_y)
-            self._local = rotated.multiply(scaled).multiply(translated)
+            self._local = scaled.multiply(rotated).multiply(translated)
             self._dirty = False
 
         return self._local
 
     
     def is_dirty(self) -> bool:
-        result: bool = False
         t: 'Transform' = self
         while not t is None:
             if t._dirty:
