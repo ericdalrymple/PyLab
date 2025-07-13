@@ -175,3 +175,4 @@ cython_debug/
 .setup/
 .packaged/
 PyLab.zip
+ursinagame/build_Windows/
