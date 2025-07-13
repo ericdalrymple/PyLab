@@ -1,2 +1,4 @@
+auto-py-to-exe==2.46.0
 pygame==2.6.0
 pyinstaller==6.12.0
+ursina==7.0.0
