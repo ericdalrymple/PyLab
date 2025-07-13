@@ -3,10 +3,15 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "MyGame_Test.tmx",
+    "activeFile": "tilemaps/MyGame_Test.tmx",
     "expandedProjectPaths": [
+        "worlds",
+        "sprites/male_character",
+        "tilesets",
+        "tilemaps",
         "C:/Users/choco.EUCLID/Workshop/PyLab/mygame/res/sprites",
-        "."
+        ".",
+        "sprites"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -276,11 +281,11 @@
             "scaleInDock": 1
         },
         "tilemaps/MyGame_Test.tmx": {
-            "scale": 0.5601041666666666,
-            "selectedLayer": -1,
+            "scale": 1.6408,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 565.9661521294403,
-                "y": 453.4870745769017
+                "x": 458.3130180399805,
+                "y": 280.9605070697221
             }
         },
         "tilemaps/Sample_Exterior.tmx": {
@@ -394,16 +399,16 @@
     "map.lastUsedFormat": "tmx",
     "map.width": 60,
     "openFiles": [
-        "Sample_Exterior.tmx",
-        "Sample_Interior.tmx",
-        "MyGame_Test.tmx",
-        "C:/Users/choco.EUCLID/Workshop/PyLab/mygame/res/sprites/male_character/Base_boy.tmx"
+        "sprites/male_character/Base_boy.tmx",
+        "tilemaps/Sample_Interior.tmx",
+        "tilemaps/MyGame_Test.tmx"
     ],
     "project": "MyGame.tiled-project",
     "recentFiles": [
+        "sprites/male_character/Base_boy.tmx",
         "tilemaps/Sample_Interior.tmx",
-        "tilemaps/Sample_Exterior.tmx",
         "tilemaps/MyGame_Test.tmx",
+        "tilemaps/Sample_Exterior.tmx",
         "tilesets/Interior.tsx",
         "tilesets/Doors_windows_animation.tsx",
         "tilesets/walls_floor.tsx",
@@ -411,8 +416,7 @@
         "tilesets/exterior.tsx",
         "tilesets/ground_grass_details.tsx",
         "Sample_Exterior.tmx",
-        "Sample_Interior.tmx",
-        "C:/Users/choco.EUCLID/Workshop/PyLab/mygame/res/sprites/male_character/Base_boy.tmx"
+        "Sample_Interior.tmx"
     ],
     "tileset.tileSize": {
         "height": 16,
