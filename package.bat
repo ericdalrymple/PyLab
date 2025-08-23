@@ -24,7 +24,7 @@ robocopy "%rootDir%lessons" "%packDir%lessons" /E /XD %exclude_dirs% >nul 2>&1
 robocopy "%rootDir%tinyengine" "%packDir%tinyengine" /E /XD %exclude_dirs% >nul 2>&1
 copy "%rootDir%requirements.txt" "%packDir%requirements.txt" /Y >nul 2>&1
 copy "%rootDir%setup.bat" "%packDir%setup.bat" /Y >nul 2>&1
-copy "%rootDir%update.bat" "%packDir%setup.bat" /Y >nul 2>&1
+copy "%rootDir%update.bat" "%packDir%update.bat" /Y >nul 2>&1
 
 :: Zip the package contents
 echo Packaging files to "%rootDir%%packName%"... 
