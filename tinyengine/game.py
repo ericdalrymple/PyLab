@@ -24,7 +24,7 @@ class Game(tinyengine.input.InputListener):
 
 
     # Public
-    def launch(self, title, backgroundColor : tuple, windowSize : tuple, res_root: str):
+    def launch(self, title, backgroundColor : tuple, windowSize : tuple, res_root: str = ""):
         # Game Settings
         fps = 60
         viewport = pygame.Surface(windowSize, pygame.SRCALPHA, 32)
