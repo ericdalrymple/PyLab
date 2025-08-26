@@ -18,7 +18,6 @@ if not exist "%packDir%" (
 echo Staging files to "%packDir%"...
 set exclude_dirs=build_Windows __pycache__ >nul 2>&1
 robocopy "%rootDir%.vscode" "%packDir%.vscode" /E /XD %exclude_dirs% >nul 2>&1
-robocopy "%rootDir%game" "%packDir%game" /E /XD %exclude_dirs% >nul 2>&1
 robocopy "%rootDir%images" "%packDir%images" /E /XD %exclude_dirs% >nul 2>&1
 robocopy "%rootDir%lessons" "%packDir%lessons" /E /XD %exclude_dirs% >nul 2>&1
 robocopy "%rootDir%tinyengine" "%packDir%tinyengine" /E /XD %exclude_dirs% >nul 2>&1
