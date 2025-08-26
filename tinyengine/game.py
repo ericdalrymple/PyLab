@@ -1,4 +1,6 @@
+import os
 import pygame
+import sys
 import tinyengine.input
 import tinyengine.world
 
@@ -7,6 +9,7 @@ from sys import exit
 class Game(tinyengine.input.InputListener):
 
     input = None
+    res_root = ""
     world = tinyengine.world.World()
 
     # Virtual
@@ -21,7 +24,7 @@ class Game(tinyengine.input.InputListener):
 
 
     # Public
-    def launch(self, title, backgroundColor : tuple, windowSize : tuple):
+    def launch(self, title, backgroundColor : tuple, windowSize : tuple, res_root: str):
         # Game Settings
         fps = 60
         viewport = pygame.Surface(windowSize, pygame.SRCALPHA, 32)
@@ -32,10 +35,16 @@ class Game(tinyengine.input.InputListener):
         screen = pygame.display.set_mode(windowSize)
         clock = pygame.time.Clock()
 
-        # Game init
+        # Input init
         self.input = tinyengine.InputDispatcher(0.1)
         self.input.addListener(self)
         self.input.addListener(self.world)
+
+        # Resource root init
+        base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(".")))
+        self.res_root = os.path.join(base_path, res_root)
+
+        # Start
         self.start()
 
         # Game loop
@@ -74,6 +83,10 @@ class Game(tinyengine.input.InputListener):
 
             pygame.display.flip()
             clock.tick(fps)
+
+
+    def res_path(self, relative_path: str) -> str:
+        return os.path.join(self.res_root, relative_path)
 
 
     # Protected
