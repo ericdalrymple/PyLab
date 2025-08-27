@@ -1,3 +1,4 @@
+import os
 import pygame.gfxdraw
 import tinyengine
 
@@ -47,12 +48,7 @@ class MyGame(tinyengine.Game):
         self.world.add_objects(
             MyButton(x=10, y=10, width=200, height=25, text="My Button"),
             Player(),
-            tinyengine.Image(300, 100, ".\\images\\character.png"))
-
-        #self.world.add_object(tinyengine.Entity(
-        #    400, 300,
-        #    [tinyengine.ImageDrawable("images/character.png"),
-        #     tinyengine.ArrowMovable(200)]))
+            tinyengine.Image(300, 100, self.res_path("res/character.png")))
         
 
 # ======================================================================================= #
@@ -60,5 +56,6 @@ class MyGame(tinyengine.Game):
 # ======================================================================================= #
 MyGame().launch(
     title="My Game",
-    backgroundColor = (0, 0, 0),
-    windowSize = (800, 600))
+    backgroundColor = (94, 94, 94),
+    windowSize = (800, 600),
+    res_root=os.path.dirname(os.path.abspath(__file__)))
