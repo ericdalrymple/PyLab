@@ -14,6 +14,7 @@ Game = tinyengine.game.Game
 InputListener = tinyengine.input.InputListener
 InputDispatcher = tinyengine.input.InputDispatcher
 Transform = tinyengine.transform.Transform
+World = tinyengine.world.World
 
 
 # Components
