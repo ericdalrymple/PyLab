@@ -23,10 +23,6 @@ class Player(tinyengine.Entity):
 # ======================================================================================= #
 class MyButton(Button):
 
-    def __init__(self, x, y, width, height, text):
-        super().__init__(x, y, width, height, text)
-    
-
     def on_button_clicked(self):
 
         # Make the button do something.
@@ -55,7 +51,7 @@ class MyGame(tinyengine.Game):
 # Launch the game.
 # ======================================================================================= #
 MyGame().launch(
-    title="My Game",
+    title="DemoGame",
     backgroundColor = (94, 94, 94),
     windowSize = (800, 600),
     res_root=os.path.dirname(os.path.abspath(__file__)))
