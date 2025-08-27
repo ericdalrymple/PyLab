@@ -20,6 +20,17 @@ echo "Python installer terminated."
 
 
 echo.
+echo "=================> Installing 7-Zip..."
+
+echo "Securing 7-Zip installer..."
+curl "https://7-zip.org/a/7z2501-x64.exe" -L -o .\.setup\7z2501-x64.exe
+echo "Launching 7-Zip installer..."
+start /wait .\.setup\7z2501-x64.exe
+echo "7-Zip installer terminated."
+
+
+
+echo.
 echo.
 echo.
 echo "=================> Installing Visual Studio Code..."
