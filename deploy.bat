@@ -2,8 +2,7 @@
 
 setlocal
 
-set rootDir=%~dp0
-set packDir=%rootDir%.packaged\
+set rootDir=%~dp0.share\
 set deployDir=C:\Users\choco.EUCLID\Sync\Shared\Ghys\
 set packName=PyLab.zip
 
