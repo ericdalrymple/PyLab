@@ -4,6 +4,11 @@ setlocal
 set vscode="%LocalAppData%\Programs\Microsoft VS Code\Code.exe"
 
 echo Welcome to PyLab!
+echo ===================================================================
+goto bootchoice
+:choice
+echo -------------------------------------------------------------------
+:bootchoice
 echo.
 echo What would you like to do?
 echo 1. Create a new game
@@ -15,17 +20,14 @@ echo.
 
 
 
-:choice
 set /p choice=Please enter your choice: 
+echo.
 
 if "%choice%"=="1" (
-    echo Creating a new game...
     goto projcreate
 ) else if "%choice%"=="2" (
-    echo Opening an existing game...
     goto projopen
 ) else if "%choice%"=="3" (
-    echo Sharing a game...
     goto projshare
 ) else if "%choice%"=="4" (
     echo Exiting...
@@ -42,6 +44,12 @@ if "%choice%"=="1" (
 :projcreate
 echo Creating a new game...
 set /p projname=Enter game name: 
+echo.
+if "%projname%" equ "" (
+    echo Game name cannot be empty.
+    echo.
+    goto choice
+)
 :: Create the project directory
 set projdir=%~dp0games\%projname%
 mkdir "%projdir%"
@@ -50,9 +58,7 @@ robocopy "%~dp0.templates\tinygame" "%projdir%" /E >nul 2>&1
 :: Substitute the game title
 powershell -Command "(Get-Content '%projdir%/main.py') -replace '\$\$GAME_TITLE\$\$', '%projname%' | Set-Content '%projdir%/main.py'"
 :: Conclude and open the game in VSCode
-echo Game project %projname% created successfully.
-echo Opening game in VSCode...
-%vscode% "%projdir%"
+echo Game project "%projname%" created successfully.
 goto projboot
 
 
@@ -62,49 +68,64 @@ goto projboot
 echo Opening an existing game...
 :: List projects in the games directories and ask the user to pick one
 echo Available games:
+echo.
 cd "%~dp0games"
 dir /B /AD
 cd "%~dp0"
+echo.
 set /p projname=Enter game name: 
+if "%projname%" equ "" (
+    echo Game name cannot be empty.
+    echo.
+    goto choice
+)
+echo.
 :: Pick the first directory name under the games directory that starts with the input string
 for /f "delims=" %%i in ('dir /B /AD "%~dp0games\%projname%*"') do (
     set projdir=%~dp0games\%%i
     set projname=%%i
     goto selected
 )
+echo.
 echo Game project %projname% not found.
-goto finish
+echo.
+goto choice
 
 :selected
-echo Opening game project "%projname%"...
 goto projboot
 
 
 
 
 :projboot
+echo Opening game project "%projname%" in VSCode...
 %vscode% "%projdir%"
-goto finish
+echo.
+goto choice
 
 
 
 
 :projshare
-echo Sharing an existing game...
+echo Sharing a game...
 :: List projects in the games directories and ask the user to pick one
 echo Available games:
 cd "%~dp0games"
 dir /B /AD
 cd "%~dp0"
+echo.
 set /p projname=Enter project name: 
+echo.
 :: Pick the first directory name under the games directory that starts with the input string
 for /f "delims=" %%i in ('dir /B /AD "%~dp0games\%projname%*"') do (
     set projdir=%~dp0games\%%i
     set projname=%%i
     goto found
 )
+echo.
 echo Game project %projname% not found.
-goto finish
+echo.
+goto choice
 
 :found
 echo Packaging game project "%projname%"...
@@ -115,14 +136,26 @@ if not exist "%stagingdir%" (
     mkdir "%stagingdir%"
 )
 popd
+:: Create share directory
+set sharedir=%~dp0.share
+if not exist "%sharedir%" (
+    mkdir "%sharedir%"
+)
 :: Generate executable binaries
 pushd "%stagingdir%"
-pyinstaller --noconfirm --onedir --console --name "%projname%" --add-data "%projdir%\res;res/" --collect-all "tinyengine"  "%projdir%\main.py"
+pyinstaller --noconfirm --onedir --console --name "%projname%" --add-data "%projdir%\res;res/" --collect-all "tinyengine"  "%projdir%\main.py" >nul 2>&1
 popd
 :: Package binaries
-7z a -tzip "%projdir%\%projname%.zip" "%stagingdir%\dist\%projname%*"
-explorer "%projdir%"
-goto finish
+echo Making shareable game bundle...
+set archive=%sharedir%\%projname%.zip
+if exist "%archive%" (
+    del "%archive%"
+)
+7z a -tzip "%archive%" "%stagingdir%\dist\%projname%\*" >nul 2>&1
+explorer "%sharedir%"
+echo.
+goto choice
+
 :finish
 
 endlocal
