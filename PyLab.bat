@@ -115,7 +115,7 @@ if not exist "%stagingdir%" (
 )
 popd
 pushd "%stagingdir%"
-pyinstaller --noconfirm --onedir --console --add-data "%projdir%\res;res/" --collect-all "tinyengine"  "%projdir%\main.py"
+pyinstaller --noconfirm --onedir --console --name "%projname%" --add-data "%projdir%\res;res/" --collect-all "tinyengine"  "%projdir%\main.py"
 popd
 goto finish
 
