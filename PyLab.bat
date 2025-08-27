@@ -30,31 +30,61 @@ if "%choice%"=="1" (
     goto choice
 )
 
-set rootDir=%~dp0
+
+
 
 :projcreate
 echo Creating a new project...
 set /p projname=Enter project name: 
 :: Create the project directory
-mkdir "%projname%"
+set projdir=%~dp0games\%projname%
+mkdir "%projdir%"
 :: Copy the template files
-robocopy "%~dp0.templates\tinygame" "%~dp0%projname%" /E >nul 2>&1
+robocopy "%~dp0.templates\tinygame" "%projdir%" /E >nul 2>&1
 :: Substitute the game title
-powershell -Command "(Get-Content '%~dp0%projname%/main.py') -replace '\$\$GAME_TITLE\$\$', '%projname%' | Set-Content '%~dp0%projname%/main.py'"
+powershell -Command "(Get-Content '%projdir%/main.py') -replace '\$\$GAME_TITLE\$\$', '%projname%' | Set-Content '%projdir%/main.py'"
 :: Conclude and open the game in VSCode
 echo Project %projname% created successfully.
-%vscode% ".\%projname%"
-goto finish
+echo Opening project in VSCode...
+%vscode% "%projdir%"
+goto projboot
+
 
 
 
 :projopen
 echo Opening an existing project...
+:: List projects in the games directories and ask the user to pick one
+echo Available games:
+cd "%~dp0games"
+dir /B /AD
+cd "%~dp0"
 set /p projname=Enter project name: 
-cd "%projname%"
-echo Project %projname% opened successfully.
+:: Pick the first directory name under the games directory that starts with the input string
+for /f "delims=" %%i in ('dir /B /AD "%~dp0games\%projname%*"') do (
+    set projdir=%~dp0games\%%i
+    set projname=%%i
+    goto found
+)
+echo Project %projname% not found.
 goto finish
+
+:found
+echo Opening game project "%projname%"...
+goto projboot
+
+
+
+
+:projboot
+%vscode% "%projdir%"
+goto finish
+
+
+
 
 :finish
 
 endlocal
+
+pause
