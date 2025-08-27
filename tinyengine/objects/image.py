@@ -1,6 +1,4 @@
 import tinyengine
-import tinyengine.components
-import tinyengine.components.imagedrawable
 import tinyengine.entity
 
 class Image(tinyengine.entity.Entity):
