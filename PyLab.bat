@@ -108,19 +108,21 @@ goto finish
 
 :found
 echo Packaging game project "%projname%"...
+:: Create staging directory
 pushd "%projdir%"
 set stagingdir=%projdir%\.staging
 if not exist "%stagingdir%" (
     mkdir "%stagingdir%"
 )
 popd
+:: Generate executable binaries
 pushd "%stagingdir%"
 pyinstaller --noconfirm --onedir --console --name "%projname%" --add-data "%projdir%\res;res/" --collect-all "tinyengine"  "%projdir%\main.py"
 popd
+:: Package binaries
+7z a -tzip "%projdir%\%projname%.zip" "%stagingdir%\dist\%projname%*"
+explorer "%projdir%"
 goto finish
-
-
-
 :finish
 
 endlocal
