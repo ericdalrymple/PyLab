@@ -175,4 +175,5 @@ cython_debug/
 .setup/
 .packaged/
 PyLab.zip
+**/.staging
 **/build_Windows/
