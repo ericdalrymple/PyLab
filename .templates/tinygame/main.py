@@ -2,12 +2,15 @@ import os
 import tinyengine
 
 from tinyengine.objects.mousedisplay import MouseDisplay
-    
+
+Title = "$$GAME_TITLE$$"
+BackgroundColour = (94, 94, 94)
+WindowSize = (800, 600)
 
 # ======================================================================================= #
-# Here is where we can put objects in our game.
+# Here is where we can put code to control our game.
 # ======================================================================================= #
-class TinyGame(tinyengine.Game):
+class $$GAME_TITLE$$(tinyengine.Game):
 
     def on_start(self):
         # Add something to show us the mouse position
@@ -17,13 +20,13 @@ class TinyGame(tinyengine.Game):
 
     def on_update(self, deltaTime):
         # This code will happen over and over again until the game is closed.
-        # It should do things like move things around.
+        # It should do things like move or change things around over time.
         return super().on_update(deltaTime)
     
     
     def on_draw(self, surface):
         # This code will happen over and over again until the game is closed.
-        # It should do things like draw things on the screen.
+        # It should draw things on the screen.
         return super().on_draw(surface)
     
 
@@ -46,8 +49,8 @@ class TinyGame(tinyengine.Game):
 # ======================================================================================= #
 # Launch the game.
 # ======================================================================================= #
-TinyGame().launch(
-    title="$$GAME_TITLE$$",
-    backgroundColor = (94, 94, 94),
-    windowSize = (800, 600),
+$$GAME_TITLE$$().launch(
+    title=Title,
+    backgroundColor = BackgroundColour,
+    windowSize = WindowSize,
     res_root=os.path.dirname(os.path.abspath(__file__)))
