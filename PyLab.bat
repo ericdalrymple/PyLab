@@ -11,10 +11,11 @@ echo -------------------------------------------------------------------
 :bootchoice
 echo.
 echo What would you like to do?
-echo 1. Create a new game
-echo 2. Open an existing game
-echo 3. Share a game
-echo 4. Nothing
+echo 1. Open lessons
+echo 2. Create a new game
+echo 3. Open an existing game
+echo 4. Share a game
+echo 5. Nothing
 echo.
 
 
@@ -24,12 +25,14 @@ set /p choice=Please enter your choice:
 echo.
 
 if "%choice%"=="1" (
-    goto projcreate
+    goto lessons
 ) else if "%choice%"=="2" (
-    goto projopen
+    goto projcreate
 ) else if "%choice%"=="3" (
-    goto projshare
+    goto projopen
 ) else if "%choice%"=="4" (
+    goto projshare
+) else if "%choice%"=="5" (
     echo Exiting...
     goto finish
 ) else (
@@ -37,6 +40,14 @@ if "%choice%"=="1" (
     echo.
     goto choice
 )
+
+
+
+
+:lessons
+echo Starting lessons...
+%vscode% ".\lessons"
+goto choice
 
 
 
@@ -56,7 +67,8 @@ mkdir "%projdir%"
 :: Copy the template files
 robocopy "%~dp0.templates\tinygame" "%projdir%" /E >nul 2>&1
 :: Substitute the game title
-powershell -Command "(Get-Content '%projdir%/main.py') -replace '\$\$GAME_TITLE\$\$', '%projname%' | Set-Content '%projdir%/main.py'"
+set sprojname=%projname: =%
+powershell -Command "(Get-Content '%projdir%/main.py') -replace '_T_GAME_TITLE_T_', '%projname%' | Set-Content '%projdir%/main.py'"
 :: Conclude and open the game in VSCode
 echo Game project "%projname%" created successfully.
 goto projboot
