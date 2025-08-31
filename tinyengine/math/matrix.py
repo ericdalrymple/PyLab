@@ -2,9 +2,9 @@ import math
 
 class Matrix33():
     
-    _m = [[0.0 for c in range(3)] for r in range(3)]
+    _m = None
 
-    def __init__(self, m00:float=0.0, m01:float=0.0, m02:float=0.0, m10:float=0.0, m11:float=0.0, m12:float=0.0, m20:float=0.0, m21:float=0.0, m22:float=0.0):
+    def set(self, m00:float=0.0, m01:float=0.0, m02:float=0.0, m10:float=0.0, m11:float=0.0, m12:float=0.0, m20:float=0.0, m21:float=0.0, m22:float=0.0):
         self._m[0][0] = m00
         self._m[0][1] = m01
         self._m[0][2] = m02
@@ -16,6 +16,15 @@ class Matrix33():
         self._m[2][0] = m20
         self._m[2][1] = m21
         self._m[2][2] = m22
+
+
+    def __init__(self, m00:float=0.0, m01:float=0.0, m02:float=0.0, m10:float=0.0, m11:float=0.0, m12:float=0.0, m20:float=0.0, m21:float=0.0, m22:float=0.0):
+        self._m = [[0.0 for c in range(3)] for r in range(3)]
+        self.set(
+            m00, m01, m02,
+            m10, m11, m12,
+            m20, m21, m22
+        )
 
 
     def determinant(self) -> float:
@@ -82,8 +91,8 @@ class Matrix33():
             c[1][0], c[1][1], c[1][2],
             c[2][0], c[2][1], c[2][2],
         )
-    
 
+    
     def transpose(self) -> 'Matrix33':
         a = self._m
         b = [[0.0 for c in range(3)] for r in range(3)]
@@ -99,44 +108,50 @@ class Matrix33():
         )
 
 
-def from_position(x: float = 0.0, y: float = 0.0) -> 'Matrix33':
-    return Matrix33(
-        1.0, 0.0, x,
-        0.0, 1.0, y,
-        0.0, 0.0, 1.0
-    )
+    @staticmethod
+    def from_rotation(degrees: float = 0.0) -> 'Matrix33':
+        rad = math.radians(degrees)
+        sin = math.sin(rad)
+        cos = math.cos(rad)
+        return Matrix33(
+            cos, -sin, 0.0,
+            sin,  cos, 0.0,
+            0.0,  0.0, 1.0
+        )
 
 
-def from_rotation(degrees: float = 0.0) -> 'Matrix33':
-    rad = math.radians(degrees)
-    sin = math.sin(rad)
-    cos = math.cos(rad)
-    return Matrix33(
-        cos, -sin, 0.0,
-        sin,  cos, 0.0,
-        0.0,  0.0, 1.0
-    )
+    @staticmethod
+    def from_scale(x: float = 1.0, y: float = 1.0) -> 'Matrix33':
+        return Matrix33(
+            x,   0.0, 0.0,
+            0.0,   y, 0.0,
+            0.0, 0.0, 1.0
+        )
 
 
-def from_scale(x: float = 1.0, y: float = 1.0) -> 'Matrix33':
-    return Matrix33(
-          x, 0.0, 0.0,
-        0.0,   y, 0.0,
-        0.0, 0.0, 1.0
-    )
+    @staticmethod
+    def from_translation(x: float = 0.0, y: float = 0.0) -> 'Matrix33':
+        return Matrix33(
+            1.0, 0.0, x,
+            0.0, 1.0, y,
+            0.0, 0.0, 1.0
+        )
+    
+    
+    @staticmethod
+    def from_scale_uniform(scale: float = 1.0) -> 'Matrix33':
+        return Matrix33.from_scale(scale, scale)
 
 
-def from_scale_uniform(scale: float = 1.0) -> 'Matrix33':
-    return from_scale(scale, scale)
+    @staticmethod
+    def identity() -> 'Matrix33':
+        return Matrix33(
+            1.0, 0.0, 0.0,
+            0.0, 1.0, 0.0,
+            0.0, 0.0, 1.0
+        )
 
 
-def identity() -> 'Matrix33':
-    return Matrix33(
-        1.0, 0.0, 0.0,
-        0.0, 1.0, 0.0,
-        0.0, 0.0, 1.0
-    )
-
-
-def null() -> 'Matrix33':
-    return Matrix33()
+    @staticmethod
+    def null() -> 'Matrix33':
+        return Matrix33()

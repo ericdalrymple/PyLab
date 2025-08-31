@@ -12,6 +12,7 @@ class AbstractEntity():
     transform: tinyengine.transform.Transform = tinyengine.transform.Transform()
     
     def __init__(self, startPosition : Vector2):
+        self.transform = tinyengine.transform.Transform()
         self.transform.set_position(startPosition.x, startPosition.y)
 
     def start(self):

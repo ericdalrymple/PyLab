@@ -7,8 +7,8 @@ class Transform():
 
     _parent:'Transform' = None
 
-    _local: tinyengine.math.matrix.Matrix33 = tinyengine.math.matrix.identity()
-    _world: tinyengine.math.matrix.Matrix33 = tinyengine.math.matrix.identity()
+    _local: tinyengine.math.matrix.Matrix33 = tinyengine.math.matrix.Matrix33.identity()
+    _world: tinyengine.math.matrix.Matrix33 = tinyengine.math.matrix.Matrix33.identity()
 
     _x: float = 0.0
     _y: float = 0.0
@@ -30,7 +30,7 @@ class Transform():
         self._rotation = rotation
         self._dirty = True
 
-    
+
     def get_world(self) -> tinyengine.math.matrix.Matrix33:
         if self.is_dirty():
             # If the transform stack is dirty, we need to recompute the world transform.
@@ -50,9 +50,10 @@ class Transform():
     def get_local(self) -> tinyengine.math.matrix.Matrix33:
         if self._dirty:
             # Compose the local transform.
-            translated = tinyengine.math.matrix.from_position(self._x, self._y)
-            rotated = tinyengine.math.matrix.from_rotation(self._rotation)
-            scaled = tinyengine.math.matrix.from_scale(self._scale_x, self._scale_y)
+            translated = tinyengine.Matrix33.from_translation(self._x, self._y)
+            rotated = tinyengine.Matrix33.from_rotation(self._rotation)
+            scaled = tinyengine.Matrix33.from_scale(self._scale_x, self._scale_y)
+
             self._local = scaled.multiply(rotated).multiply(translated)
             self._dirty = False
 
