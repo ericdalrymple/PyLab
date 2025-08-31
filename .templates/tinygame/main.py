@@ -1,55 +1,87 @@
 import os
 import tinyengine
 
+from tinyengine import Game
 from tinyengine.objects.mousedisplay import MouseDisplay
 
+
+
 Title = "_T_GAME_TITLE_T_"
-BackgroundColour = (94, 94, 94)
-WindowSize = (800, 600)
+BackgroundColour = (94, 94, 94) # (red, green, blue)
+WindowSize = (800, 600)         # (x, y)
+
+
 
 # ======================================================================================= #
 # Here is where we can put code to control our game.
 # ======================================================================================= #
-class MyGame(tinyengine.Game):
 
-    def on_start(self):
-        # Add something to show us the mouse position
-        self.world.add_objects(MouseDisplay())
-        return
+# This code will happen when the game starts.
+def on_start(game):
+    # Add something to show us the mouse position
+    game.world.add_objects(MouseDisplay())
+    return
 
 
-    def on_update(self, deltaTime):
-        # This code will happen over and over again until the game is closed.
-        # It should do things like move or change things around over time.
-        return super().on_update(deltaTime)
-    
-    
-    def on_draw(self, surface):
-        # This code will happen over and over again until the game is closed.
-        # It should draw things on the screen.
-        return super().on_draw(surface)
-    
+# This code will happen over and over again until the game is closed.
+# It should do things like move or change things around over time.
+def on_update(game, deltaTime):
+    return
 
-    def on_key_down(self, key):
-        # This code will happen every time a key on the keyboard is pressed down.
-        return super().on_key_down(key)
-    
 
-    def on_key_up(self, key):
-        # This code will happen every time a key on the keyboard is released.
-        return super().on_key_up(key)
-    
+# This code will happen over and over again until the game is closed.
+# It should draw things on the screen.
+def on_draw(game, surface):
+    return
 
-    def on_key_held(self, key):
-        # This code will happen over and over again as long as a key on the keyboard is held down.
-        return super().on_key_held(key)
-    
+
+
+
+
+
+# This code will happen every time a key on the keyboard is pressed down.
+def on_key_down(game, key):
+    return
+
+
+# This code will happen every time a key on the keyboard is released.
+def on_key_up(game, key):
+    return
+
+
+# This code will happen over and over again as long as a key on the keyboard is held down.
+def on_key_held(game, key):
+    return
+
+
+# This code will happen every time a mouse button is clicked.
+def on_mouse_clicked(game, pos, button):
+    return
+
+
+# This code will happen every time a mouse button is pressed down.
+def on_mouse_down(game, pos, button):
+    return
+
+
+# This code will happen every time a mouse button is released.
+def on_mouse_up(game, pos, button):
+    return
+
+
+# This code will happen every time the cursor moved on the game surface.
+def on_mouse_move(game, pos):    
+    return
+
+
+
+
 
 
 # ======================================================================================= #
 # Launch the game.
 # ======================================================================================= #
-MyGame().launch(
+Game().launch(
     title=Title,
     backgroundColor = BackgroundColour,
     windowSize = WindowSize,
