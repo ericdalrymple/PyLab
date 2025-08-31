@@ -34,23 +34,103 @@ class MyButton(Button):
 # ======================================================================================= #
 # Here is where we can put objects in our game.
 # ======================================================================================= #
-class MyGame(tinyengine.Game):
 
-    def on_start(self):
-        # Add something to show us the mouse position
-        self.world.add_objects(MouseDisplay())
+myvar="7777777777777777777777777777777777777"
+printdraw=False
+printupdate=False
+printmousemove=False
+printkeyheld=False
 
-        # Setup the game
-        self.world.add_objects(
-            MyButton(x=10, y=10, width=200, height=25, text="My Button"),
-            Player(),
-            tinyengine.Image(300, 100, self.res_path("res/character.png")))
-        
+def on_start(game):
+     game.world.add_objects(MouseDisplay())
+
+     # Setup the game
+     game.world.add_objects(
+          MyButton(x=10, y=10, width=200, height=25, text="My Button"),
+          Player(),
+          tinyengine.Image(300, 100, game.res_path("res/character.png")))
+
+
+def on_draw(game, surface):
+     global printdraw
+
+     if printdraw:
+          print("DRAW")
+          printdraw = False
+
+
+def on_update(game, deltaTime):
+     global printupdate
+
+     if printupdate:
+          print("UPDATE")
+          printupdate = False
+
+
+def on_key_down(game, key):
+     print("KEY DOWN")
+
+
+def on_key_held(game, key):
+     global printdraw
+     global printkeyheld
+     global printmousemove
+     global printupdate
+
+     if key is pygame.K_d:
+          printdraw = True
+
+     if key is pygame.K_k:
+          printkeyheld = True
+
+     if key is pygame.K_m:
+          printmousemove = True
+     
+     if key is pygame.K_u:
+          printupdate = True
+
+     if printkeyheld:
+          print("KEY HELD")
+
+
+def on_key_up(game, key):
+     global printdraw
+     global printkeyheld
+     global printmousemove
+     global printupdate
+
+     print("KEY UP")
+
+     printdraw = False
+     printkeyheld = False
+     printmousemove = False
+     printupdate = False
+
+
+def on_mouse_clicked(game, pos, button):
+     print("MOUSE CLICKED")
+
+
+def on_mouse_down(game, pos, button):
+     print("MOUSE DOWN")
+
+
+def on_mouse_move(game, pos):
+     global printmousemove
+
+     if printmousemove:
+          print("MOUSE MOVE")
+          printmousemove = False
+
+
+def on_mouse_up(game, pos, button):
+     print("MOUSE UP")
+
 
 # ======================================================================================= #
 # Launch the game.
 # ======================================================================================= #
-MyGame().launch(
+tinyengine.Game().launch(
     title="DemoGame",
     backgroundColor = (94, 94, 94),
     windowSize = (800, 600),
