@@ -1,4 +1,3 @@
-import os
 import pygame.gfxdraw
 import tinyengine
 
@@ -11,7 +10,11 @@ from tinyengine.objects.mousedisplay import MouseDisplay
 class Player(tinyengine.Entity):
 
     def __init__(self):
-        super().__init__(0, 0, [tinyengine.ImageDrawable(tinyengine.res_path("res/character.png"))])
+        super().__init__(
+            400, 300,
+            [
+                  tinyengine.ImageDrawable(tinyengine.res_path("res/character.png"), 64, 64)
+            ])
 
 
 # ======================================================================================= #
