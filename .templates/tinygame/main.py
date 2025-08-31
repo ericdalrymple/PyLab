@@ -3,14 +3,14 @@ import tinyengine
 
 from tinyengine.objects.mousedisplay import MouseDisplay
 
-Title = "$$GAME_TITLE$$"
+Title = "_T_GAME_TITLE_T_"
 BackgroundColour = (94, 94, 94)
 WindowSize = (800, 600)
 
 # ======================================================================================= #
 # Here is where we can put code to control our game.
 # ======================================================================================= #
-class $$GAME_TITLE$$(tinyengine.Game):
+class MyGame(tinyengine.Game):
 
     def on_start(self):
         # Add something to show us the mouse position
@@ -49,7 +49,7 @@ class $$GAME_TITLE$$(tinyengine.Game):
 # ======================================================================================= #
 # Launch the game.
 # ======================================================================================= #
-$$GAME_TITLE$$().launch(
+MyGame().launch(
     title=Title,
     backgroundColor = BackgroundColour,
     windowSize = WindowSize,
