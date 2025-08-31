@@ -1,4 +1,3 @@
-import os
 import tinyengine
 
 from tinyengine import Game
@@ -7,8 +6,8 @@ from tinyengine.objects.mousedisplay import MouseDisplay
 
 
 Title = "_T_GAME_TITLE_T_"
-BackgroundColour = (94, 94, 94) # (red, green, blue)
-WindowSize = (800, 600)         # (x, y)
+BackgroundColour = (94, 94, 94)     # (red, green, blue)
+WindowSize = (800, 600)             # (x, y)
 
 
 
@@ -84,5 +83,4 @@ def on_mouse_move(game, pos):
 Game().launch(
     title=Title,
     backgroundColor = BackgroundColour,
-    windowSize = WindowSize,
-    res_root=os.path.dirname(os.path.abspath(__file__)))
+    windowSize = WindowSize)

@@ -11,11 +11,7 @@ from tinyengine.objects.mousedisplay import MouseDisplay
 class Player(tinyengine.Entity):
 
     def __init__(self):
-        super().__init__(0, 0, [])
-    
-
-    def draw(self, surface):
-            pygame.gfxdraw.filled_circle(surface, 400, 300, 25, (0, 0, 255))
+        super().__init__(0, 0, [tinyengine.ImageDrawable(tinyengine.res_path("res/character.png"))])
 
 
 # ======================================================================================= #
@@ -35,7 +31,6 @@ class MyButton(Button):
 # Here is where we can put objects in our game.
 # ======================================================================================= #
 
-myvar="7777777777777777777777777777777777777"
 printdraw=False
 printupdate=False
 printmousemove=False
@@ -47,8 +42,7 @@ def on_start(game):
      # Setup the game
      game.world.add_objects(
           MyButton(x=10, y=10, width=200, height=25, text="My Button"),
-          Player(),
-          tinyengine.Image(300, 100, game.res_path("res/character.png")))
+          Player())
 
 
 def on_draw(game, surface):
@@ -133,5 +127,4 @@ def on_mouse_up(game, pos, button):
 tinyengine.Game().launch(
     title="DemoGame",
     backgroundColor = (94, 94, 94),
-    windowSize = (800, 600),
-    res_root=os.path.dirname(os.path.abspath(__file__)))
+    windowSize = (800, 600))

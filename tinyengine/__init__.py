@@ -42,3 +42,13 @@ import tinyengine.objects.mousedisplay
 Button = tinyengine.objects.button.Button
 Image = tinyengine.objects.image.Image
 MouseDisplay = tinyengine.objects.mousedisplay.MouseDisplay
+
+# Resource path mapping
+import os
+import sys
+__module_dir = os.path.dirname(os.path.abspath(sys.modules['__main__'].__file__))
+__base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(".")))
+__root_dir = os.path.join(__base_path, __module_dir)
+
+def res_path(relative_path):
+    return os.path.join(__root_dir, relative_path)
