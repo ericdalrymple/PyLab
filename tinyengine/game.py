@@ -9,8 +9,27 @@ from sys import exit
 class Game(tinyengine.input.InputListener):
 
     input = None
-    res_root = ""
     world = tinyengine.world.World()
+
+    __callbacks = {}
+    __res_root = ""
+    
+
+    # Private
+    def __get_callback__(self, name: str):
+        # Lazy-fetch the callback matching the specified name from the main module.
+        cb = self.__callbacks.get(name)
+        if cb is None:
+            # Cache the callback to avoid calling getattr every time
+            cb = getattr(sys.modules['__main__'], name, None)
+            self.__callbacks.update({name: cb})
+
+        # Return the callback if found
+        if not cb is None and callable(cb):
+            return cb
+
+        return None
+    
 
     # Virtual
     def on_start(self):
@@ -22,6 +41,41 @@ class Game(tinyengine.input.InputListener):
     def on_update(self, deltaTime : float):
         return
 
+    def on_key_down(self, key):
+        cb = self.__get_callback__('on_key_down')
+        if not cb is None:
+            cb(self, key)
+    
+    def on_key_held(self, key):
+        cb = self.__get_callback__('on_key_held')
+        if not cb is None:
+            cb(self, key)
+    
+    def on_key_up(self, key):
+        cb = self.__get_callback__('on_key_up')
+        if not cb is None:
+            cb(self, key)
+    
+    def on_mouse_clicked(self, pos, button):
+        cb = self.__get_callback__('on_mouse_clicked')
+        if not cb is None:
+            cb(self, pos, button)
+    
+    def on_mouse_down(self, pos, button):
+        cb = self.__get_callback__('on_mouse_down')
+        if not cb is None:
+            cb(self, pos, button)
+    
+    def on_mouse_move(self, pos):
+        cb = self.__get_callback__('on_mouse_move')
+        if not cb is None:
+            cb(self, pos)
+    
+    def on_mouse_up(self, pos, button):
+        cb = self.__get_callback__('on_mouse_up')
+        if not cb is None:
+            cb(self, pos, button)
+    
 
     # Public
     def launch(self, title, backgroundColor : tuple, windowSize : tuple, res_root: str = ""):
@@ -42,7 +96,7 @@ class Game(tinyengine.input.InputListener):
 
         # Resource root init
         base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(".")))
-        self.res_root = os.path.join(base_path, res_root)
+        self.__res_root = os.path.join(base_path, res_root)
 
         # Start
         self.start()
@@ -86,7 +140,7 @@ class Game(tinyengine.input.InputListener):
 
 
     def res_path(self, relative_path: str) -> str:
-        return os.path.join(self.res_root, relative_path)
+        return os.path.join(self.__res_root, relative_path)
 
 
     # Protected
@@ -94,13 +148,25 @@ class Game(tinyengine.input.InputListener):
         self.on_start()
         self.world.start()
 
+        cb = self.__get_callback__('on_start')
+        if not cb is None:
+            cb(self)
+
 
     def draw(self, surface: pygame.Surface):
         self.world.draw(surface)
         self.on_draw(surface)
+
+        cb = self.__get_callback__('on_draw')
+        if not cb is None:
+            cb(self, surface)
 
 
     def update(self, deltaTime : float):
         self.input.update(deltaTime)
         self.world.update(deltaTime)
         self.on_update(deltaTime)
+
+        cb = self.__get_callback__('on_update')
+        if not cb is None:
+            cb(self, deltaTime)
