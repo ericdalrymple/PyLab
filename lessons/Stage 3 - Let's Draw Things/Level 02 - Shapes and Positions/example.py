@@ -1,8 +1,9 @@
 import pygame.gfxdraw as draw
 from tinyengine import *
 
+#                     STAGE 3                     #
 # =============================================== #
-# ======= LESSON 12: Shapes and Positions ======= #
+# ======= LESSON 02: Shapes and Positions ======= #
 # =============================================== #
 
 # We learned how to show a screen, but now lets see if we can draw

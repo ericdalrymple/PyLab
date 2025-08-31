@@ -1,8 +1,9 @@
 from tinyengine import *
 
-# ============================================ #
-# ======= LESSON 11: Colours and Sizes ======= #
-# ============================================ #
+#                     STAGE 3                     #
+# =============================================== #
+# ======== LESSON 01: Colours and Sizes ========= #
+# =============================================== #
 
 # Welcome to Stage 2! Now things are getting really exciting! For the first time, our
 # program willdraw something instead of just writing.
