@@ -3,9 +3,9 @@
 setlocal
 
 set rootDir=%~dp0
-set packDir=%rootDir%.packaged\
+set packDir=%rootDir%.tmp\
 
-set packName=.share\PyLab.zip
+set packName=.packaged\PyLab.zip
 
 :: Ensure .package directory exists and clean.
 if not exist "%packDir%" (
@@ -18,7 +18,6 @@ if not exist "%packDir%" (
 echo Staging files to "%packDir%"...
 set exclude_dirs=build_Windows __pycache__ >nul 2>&1
 robocopy "%rootDir%.templates" "%packDir%.templates" /E /XD %exclude_dirs% >nul 2>&1
-robocopy "%rootDir%.vscode" "%packDir%.vscode" /E /XD %exclude_dirs% >nul 2>&1
 robocopy "%rootDir%games" "%packDir%games" /E /XD %exclude_dirs% >nul 2>&1
 robocopy "%rootDir%lessons" "%packDir%lessons" /E /XD %exclude_dirs% >nul 2>&1
 robocopy "%rootDir%pylab" "%packDir%pylab" /E /XD %exclude_dirs% >nul 2>&1

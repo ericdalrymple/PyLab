@@ -174,7 +174,7 @@ cython_debug/
 .pypirc
 .share/
 .setup/
-.packaged/
+.tmp/
 PyLab.zip
 **/.staging
 **/build_Windows/
