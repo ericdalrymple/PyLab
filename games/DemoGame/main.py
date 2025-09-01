@@ -1,26 +1,25 @@
-import pygame.gfxdraw
-import tinyengine
-
-from tinyengine.objects.button import Button
-from tinyengine.objects.mousedisplay import MouseDisplay
+import pygame
+import tinyengine as pylab
+import tinyengine.drawing.colours as colours
+import tinyengine.drawing.shapes as shapes
 
 # ======================================================================================= #
 # Player is our player character. It doesn't do much right now, but we can work on it.
 # ======================================================================================= #
-class Player(tinyengine.Entity):
+class Player(pylab.Entity):
 
     def __init__(self):
         super().__init__(
             400, 300,
             [
-                  tinyengine.ImageDrawable(tinyengine.res_path("res/character.png"), 64, 64)
+                  pylab.ImageDrawable(pylab.res_path("res/character.png"), 64, 64)
             ])
 
 
 # ======================================================================================= #
 # Player is our player character. It doesn't do much right now, but we can work on it.
 # ======================================================================================= #
-class MyButton(Button):
+class MyButton(pylab.Button):
 
     def on_button_clicked(self):
 
@@ -40,7 +39,7 @@ printmousemove=False
 printkeyheld=False
 
 def on_start(game):
-     game.world.add_objects(MouseDisplay())
+     game.world.add_objects(pylab.MouseDisplay())
 
      # Setup the game
      game.world.add_objects(
@@ -50,6 +49,13 @@ def on_start(game):
 
 def on_draw(game, surface):
      global printdraw
+
+     circle = shapes.Circle()
+     circle.filled = False
+     circle.colour = colours.aquamarine
+     circle.outline = 5
+     circle.radius = 35
+     circle.draw(surface, 400, 300)
 
      if printdraw:
           print("DRAW")
@@ -127,7 +133,7 @@ def on_mouse_up(game, pos, button):
 # ======================================================================================= #
 # Launch the game.
 # ======================================================================================= #
-tinyengine.Game().launch(
+pylab.Game().launch(
     title="DemoGame",
     backgroundColor = (94, 94, 94),
     windowSize = (800, 600))
