@@ -1,5 +1,5 @@
 import pygame.gfxdraw as draw
-from tinyengine import *
+from pylab import *
 
 #                     STAGE 3                     #
 # =============================================== #
@@ -13,7 +13,7 @@ from tinyengine import *
 # ======================================================================================= #
 # Here is where we can put objects in our game.
 # ======================================================================================= #
-class MyGame(tinyengine.Game):
+class MyGame(pylab.Game):
 
     def on_start(self):
         self.world.add_objects(

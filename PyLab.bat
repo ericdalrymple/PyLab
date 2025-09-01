@@ -122,6 +122,7 @@ goto choice
 echo Sharing a game...
 :: List projects in the games directories and ask the user to pick one
 echo Available games:
+echo.
 cd "%~dp0games"
 dir /B /AD
 cd "%~dp0"
@@ -155,7 +156,7 @@ if not exist "%sharedir%" (
 )
 :: Generate executable binaries
 pushd "%stagingdir%"
-pyinstaller --noconfirm --onedir --console --name "%projname%" --add-data "%projdir%\res;res/" --collect-all "tinyengine"  "%projdir%\main.py" >nul 2>&1
+pyinstaller --noconfirm --onedir --console --name "%projname%" --add-data "%projdir%\res;res/" --collect-all "pylab"  "%projdir%\main.py" >nul 2>&1
 popd
 :: Package binaries
 echo Making shareable game bundle...

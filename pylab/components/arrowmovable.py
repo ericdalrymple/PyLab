@@ -1,11 +1,11 @@
 import pygame
-import tinyengine.component
+import pylab.component
 
 """
 ArrowMovable
     Provides functionality to move the entity using the arrow keys.
 """
-class ArrowMovable(tinyengine.component.Component):
+class ArrowMovable(pylab.component.Component):
 
     # Properties
     speed = 0

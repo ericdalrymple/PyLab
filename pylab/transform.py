@@ -1,14 +1,14 @@
 import math
 import pygame
-import tinyengine
-import tinyengine.math.matrix
+import pylab
+import pylab.math.matrix
 
 class Transform():
 
     _parent:'Transform' = None
 
-    _local: tinyengine.math.matrix.Matrix33 = tinyengine.math.matrix.Matrix33.identity()
-    _world: tinyengine.math.matrix.Matrix33 = tinyengine.math.matrix.Matrix33.identity()
+    _local: pylab.math.matrix.Matrix33 = pylab.math.matrix.Matrix33.identity()
+    _world: pylab.math.matrix.Matrix33 = pylab.math.matrix.Matrix33.identity()
 
     _x: float = 0.0
     _y: float = 0.0
@@ -31,7 +31,7 @@ class Transform():
         self._dirty = True
 
 
-    def get_world(self) -> tinyengine.math.matrix.Matrix33:
+    def get_world(self) -> pylab.math.matrix.Matrix33:
         if self.is_dirty():
             # If the transform stack is dirty, we need to recompute the world transform.
             self._world = self.get_local()
@@ -47,12 +47,12 @@ class Transform():
         return pygame.Vector2(world_m._m[0][2], world_m._m[1][2])
 
     
-    def get_local(self) -> tinyengine.math.matrix.Matrix33:
+    def get_local(self) -> pylab.math.matrix.Matrix33:
         if self._dirty:
             # Compose the local transform.
-            translated = tinyengine.Matrix33.from_translation(self._x, self._y)
-            rotated = tinyengine.Matrix33.from_rotation(self._rotation)
-            scaled = tinyengine.Matrix33.from_scale(self._scale_x, self._scale_y)
+            translated = pylab.Matrix33.from_translation(self._x, self._y)
+            rotated = pylab.Matrix33.from_rotation(self._rotation)
+            scaled = pylab.Matrix33.from_scale(self._scale_x, self._scale_y)
 
             self._local = scaled.multiply(rotated).multiply(translated)
             self._dirty = False

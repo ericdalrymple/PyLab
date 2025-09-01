@@ -1,11 +1,11 @@
 import pygame.gfxdraw
-import tinyengine.component
+import pylab.component
 
 """
 ImageDrawable
     Provides basic default rendering for an image.
 """
-class ImageDrawable(tinyengine.component.Component):
+class ImageDrawable(pylab.component.Component):
 
     # Properties
     radius = 5

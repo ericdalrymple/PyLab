@@ -1,5 +1,5 @@
-import tinyengine.drawing.colours as colours
-import tinyengine.draw as draw
+import pylab.drawing.colours as colours
+import pylab.draw as draw
 
 from pygame import Vector2
 

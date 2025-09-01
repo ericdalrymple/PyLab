@@ -1,10 +1,10 @@
 import pygame
-import tinyengine
+import pylab
 
 # ======================================================================================= #
 # MouseDisplay writes the position of the mouse cursor on the screen.
 # ======================================================================================= #
-class MouseDisplay(tinyengine.Entity):
+class MouseDisplay(pylab.Entity):
 
     _font : pygame.font.Font = None
     _mousePos : tuple = (0, 0)

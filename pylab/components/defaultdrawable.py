@@ -1,11 +1,11 @@
 import pygame.gfxdraw
-import tinyengine.component
+import pylab.component
 
 """
 DefaultDrawable
     Provides basic default rendering for an entity.
 """
-class DefaultDrawable(tinyengine.component.Component):
+class DefaultDrawable(pylab.component.Component):
 
     # Properties
     radius = 5

@@ -1,20 +1,20 @@
 import pygame
-import tinyengine.abstractentity
-import tinyengine.component
+import pylab.abstractentity
+import pylab.component
 
 """
 Entity
     Entity class for every entity in the game. Its behaviour is defined by its components.
 """
-class Entity(tinyengine.abstractentity.AbstractEntity):
+class Entity(pylab.abstractentity.AbstractEntity):
     
     active = True
     visible = True
 
-    _children : list[tinyengine.abstractentity.AbstractEntity] = []
-    _components : list[tinyengine.component.Component] = []
+    _children : list[pylab.abstractentity.AbstractEntity] = []
+    _components : list[pylab.component.Component] = []
     
-    def __init__(self, startX : float = 0.0, startY : float = 0.0, components : list[tinyengine.component.Component] = []):
+    def __init__(self, startX : float = 0.0, startY : float = 0.0, components : list[pylab.component.Component] = []):
         super().__init__(pygame.Vector2(startX, startY))
         
         self._components = components

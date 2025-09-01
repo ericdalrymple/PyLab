@@ -1,11 +1,11 @@
 import pygame
-import tinyengine.component
-import tinyengine.entity
-import tinyengine.input
+import pylab.component
+import pylab.entity
+import pylab.input
 
-class World(tinyengine.input.InputListener):
+class World(pylab.input.InputListener):
 
-    objects : list[tinyengine.entity.Entity] = []
+    objects : list[pylab.entity.Entity] = []
 
     def __init__(self):
         return
@@ -58,12 +58,12 @@ class World(tinyengine.input.InputListener):
             object.on_mouse_move(pos)
 
     
-    def add_objects(self, *objects : tinyengine.entity.Entity):
+    def add_objects(self, *objects : pylab.entity.Entity):
         for object in objects:
             self.objects.append(object)
             object.start()
     
-    def add_object(self, x : float = 0.0, y : float = 0.0, components : list[tinyengine.component.Component] = []):
+    def add_object(self, x : float = 0.0, y : float = 0.0, components : list[pylab.component.Component] = []):
         self.add_objects(
-            tinyengine.Entity(x, y, components)
+            pylab.Entity(x, y, components)
         )

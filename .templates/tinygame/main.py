@@ -1,7 +1,7 @@
 import pygame
-import tinyengine as pylab
-import tinyengine.drawing.colours as colours
-import tinyengine.drawing.shapes as shapes
+import pylab
+import pylab.drawing.colours as colours
+import pylab.drawing.shapes as shapes
 
 
 

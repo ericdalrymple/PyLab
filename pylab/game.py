@@ -1,14 +1,14 @@
 import pygame
 import sys
-import tinyengine.input
-import tinyengine.world
+import pylab.input
+import pylab.world
 
 from sys import exit
 
-class Game(tinyengine.input.InputListener):
+class Game(pylab.input.InputListener):
 
     input = None
-    world = tinyengine.world.World()
+    world = pylab.world.World()
 
     _callbacks = {}
     
@@ -87,7 +87,7 @@ class Game(tinyengine.input.InputListener):
         clock = pygame.time.Clock()
 
         # Input init
-        self.input = tinyengine.InputDispatcher(0.1)
+        self.input = pylab.InputDispatcher(0.1)
         self.input.addListener(self)
         self.input.addListener(self.world)
 

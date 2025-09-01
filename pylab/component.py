@@ -1,4 +1,4 @@
-import tinyengine.abstractentity
+import pylab.abstractentity
 
 """
 Component
@@ -7,9 +7,9 @@ Component
 class Component():
 
     # Properties
-    entity : tinyengine.abstractentity.AbstractEntity = None
+    entity : pylab.abstractentity.AbstractEntity = None
 
-    def _setParent(self, entity : tinyengine.abstractentity.AbstractEntity):
+    def _setParent(self, entity : pylab.abstractentity.AbstractEntity):
         self.entity = entity
 
     def start(self):

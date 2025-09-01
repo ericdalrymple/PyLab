@@ -1,5 +1,5 @@
 import pygame.gfxdraw as draw
-from tinyengine import *
+from pylab import *
 
 #                     STAGE 3                     #
 # =============================================== #

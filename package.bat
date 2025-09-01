@@ -21,7 +21,7 @@ robocopy "%rootDir%.templates" "%packDir%.templates" /E /XD %exclude_dirs% >nul 
 robocopy "%rootDir%.vscode" "%packDir%.vscode" /E /XD %exclude_dirs% >nul 2>&1
 robocopy "%rootDir%games" "%packDir%games" /E /XD %exclude_dirs% >nul 2>&1
 robocopy "%rootDir%lessons" "%packDir%lessons" /E /XD %exclude_dirs% >nul 2>&1
-robocopy "%rootDir%tinyengine" "%packDir%tinyengine" /E /XD %exclude_dirs% >nul 2>&1
+robocopy "%rootDir%pylab" "%packDir%pylab" /E /XD %exclude_dirs% >nul 2>&1
 copy "%rootDir%PyLab.bat" "%packDir%PyLab.bat" /Y >nul 2>&1
 copy "%rootDir%requirements.txt" "%packDir%requirements.txt" /Y >nul 2>&1
 copy "%rootDir%setup.bat" "%packDir%setup.bat" /Y >nul 2>&1

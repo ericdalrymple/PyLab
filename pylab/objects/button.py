@@ -1,8 +1,8 @@
 import pygame
-import tinyengine
-from tinyengine.helpers.textrenderer import *
+import pylab
+from pylab.helpers.textrenderer import *
 
-class Button(tinyengine.Entity):
+class Button(pylab.Entity):
 
     # Constants
     STATE_IDLE      = 0

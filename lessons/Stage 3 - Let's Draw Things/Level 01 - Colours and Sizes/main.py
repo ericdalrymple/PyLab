@@ -1,4 +1,4 @@
-from tinyengine import *
+from pylab import *
 
 #                     STAGE 3                     #
 # =============================================== #

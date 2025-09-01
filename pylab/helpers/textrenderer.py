@@ -1,5 +1,5 @@
 import pygame.gfxdraw
-import tinyengine.component
+import pylab.component
 
 """
 TextRenderer

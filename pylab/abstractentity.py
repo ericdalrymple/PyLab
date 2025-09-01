@@ -1,6 +1,6 @@
 from pygame import Vector2
-import tinyengine
-import tinyengine.transform
+import pylab
+import pylab.transform
 
 """
 AbstractEntity
@@ -9,10 +9,10 @@ AbstractEntity
 class AbstractEntity():
     
     # Properties
-    transform: tinyengine.transform.Transform = tinyengine.transform.Transform()
+    transform: pylab.transform.Transform = pylab.transform.Transform()
     
     def __init__(self, startPosition : Vector2):
-        self.transform = tinyengine.transform.Transform()
+        self.transform = pylab.transform.Transform()
         self.transform.set_position(startPosition.x, startPosition.y)
 
     def start(self):
