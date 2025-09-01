@@ -1,7 +1,7 @@
-import tinyengine
-
-from tinyengine import Game
-from tinyengine.objects.mousedisplay import MouseDisplay
+import pygame
+import tinyengine as pylab
+import tinyengine.drawing.colours as colours
+import tinyengine.drawing.shapes as shapes
 
 
 
@@ -18,7 +18,7 @@ WindowSize = (800, 600)             # (x, y)
 # This code will happen when the game starts.
 def on_start(game):
     # Add something to show us the mouse position
-    game.world.add_objects(MouseDisplay())
+    game.world.add_objects(pylab.MouseDisplay())
     return
 
 
@@ -80,7 +80,7 @@ def on_mouse_move(game, pos):
 # ======================================================================================= #
 # Launch the game.
 # ======================================================================================= #
-Game().launch(
+pylab.Game().launch(
     title=Title,
     backgroundColor = BackgroundColour,
     windowSize = WindowSize)
