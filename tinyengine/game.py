@@ -10,17 +10,16 @@ class Game(tinyengine.input.InputListener):
     input = None
     world = tinyengine.world.World()
 
-    __callbacks = {}
+    _callbacks = {}
     
-
     # Private
     def __get_callback__(self, name: str):
         # Lazy-fetch the callback matching the specified name from the main module.
-        cb = self.__callbacks.get(name)
+        cb = self._callbacks.get(name)
         if cb is None:
             # Cache the callback to avoid calling getattr every time
             cb = getattr(sys.modules['__main__'], name, None)
-            self.__callbacks.update({name: cb})
+            self._callbacks.update({name: cb})
 
         # Return the callback if found
         if not cb is None and callable(cb):
