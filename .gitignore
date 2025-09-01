@@ -175,6 +175,5 @@ cython_debug/
 .share/
 .setup/
 .tmp/
-PyLab.zip
 **/.staging
 **/build_Windows/
