@@ -4,70 +4,70 @@ from pygame.math import Vector2 as Vector2
 
 # Unified interface for drawing primitives.
 
-def circle(surface: pygame.Surface, color: pygame.Color, centerPoint: Vector2, radius: int, thickness: int = 1):
+def circle(surface: pygame.Surface, colour: pygame.Color, centerPoint: Vector2, radius: int, thickness: int = 1):
     if (thickness > 1):
-        pygame.gfxdraw.aacircle(surface, int(centerPoint.x), int(centerPoint.y), radius, color)
-        pygame.gfxdraw.aacircle(surface, int(centerPoint.x) - 1, int(centerPoint.y) - 1, radius - thickness + 1, color)
-        pygame.draw.circle(surface, color, (int(centerPoint.x), int(centerPoint.y)), radius + 1, thickness)
+        pygame.gfxdraw.aacircle(surface, int(centerPoint.x), int(centerPoint.y), radius, colour)
+        pygame.gfxdraw.aacircle(surface, int(centerPoint.x) - 1, int(centerPoint.y) - 1, radius - thickness + 1, colour)
+        pygame.draw.circle(surface, colour, (int(centerPoint.x), int(centerPoint.y)), radius + 1, thickness)
     else:
-        pygame.gfxdraw.aacircle(surface, int(centerPoint.x), int(centerPoint.y), int(radius), color)
+        pygame.gfxdraw.aacircle(surface, int(centerPoint.x), int(centerPoint.y), int(radius), colour)
 
 
-def filled_circle(surface: pygame.Surface, color: pygame.Color, centerPoint: Vector2, radius: int):
-    pygame.gfxdraw.aacircle(surface, int(centerPoint.x), int(centerPoint.y), radius, color)
-    pygame.gfxdraw.filled_circle(surface, int(centerPoint.x), int(centerPoint.y), radius, color)
+def filled_circle(surface: pygame.Surface, colour: pygame.Color, centerPoint: Vector2, radius: int):
+    pygame.gfxdraw.aacircle(surface, int(centerPoint.x), int(centerPoint.y), radius, colour)
+    pygame.gfxdraw.filled_circle(surface, int(centerPoint.x), int(centerPoint.y), radius, colour)
 
 
-def ellipse(surface: pygame.Surface, color: pygame.Color, centerPoint: Vector2, radiusX: int, radiusY: int, thickness: int = 1):
+def ellipse(surface: pygame.Surface, colour: pygame.Color, centerPoint: Vector2, radiusX: int, radiusY: int, thickness: int = 1):
     if (thickness > 1):
-        pygame.gfxdraw.aaellipse(surface, int(centerPoint.x), int(centerPoint.y), radiusX, radiusY, color)
-        pygame.gfxdraw.aaellipse(surface, int(centerPoint.x) - 1, int(centerPoint.y) - 1, radiusX - thickness + 2, radiusY - thickness + 2, color)
-        pygame.draw.ellipse(surface, color, (int(centerPoint.x - radiusX), int(centerPoint.y - radiusY), radiusX * 2 + 1, radiusY * 2 + 1), thickness)
+        pygame.gfxdraw.aaellipse(surface, int(centerPoint.x), int(centerPoint.y), radiusX, radiusY, colour)
+        pygame.gfxdraw.aaellipse(surface, int(centerPoint.x) - 1, int(centerPoint.y) - 1, radiusX - thickness + 2, radiusY - thickness + 2, colour)
+        pygame.draw.ellipse(surface, colour, (int(centerPoint.x - radiusX), int(centerPoint.y - radiusY), radiusX * 2 + 1, radiusY * 2 + 1), thickness)
     else:
-        pygame.gfxdraw.aaellipse(surface, int(centerPoint.x), int(centerPoint.y), radiusX, radiusY, color)
+        pygame.gfxdraw.aaellipse(surface, int(centerPoint.x), int(centerPoint.y), radiusX, radiusY, colour)
 
 
-def filled_ellipse(surface: pygame.Surface, color: pygame.Color, centerPoint: Vector2, radiusX: int, radiusY: int):
-    pygame.gfxdraw.aaellipse(surface, int(centerPoint.x), int(centerPoint.y), radiusX, radiusY, color)
-    pygame.gfxdraw.filled_ellipse(surface, int(centerPoint.x), int(centerPoint.y), radiusX + 1, radiusY + 1, color)
+def filled_ellipse(surface: pygame.Surface, colour: pygame.Color, centerPoint: Vector2, radiusX: int, radiusY: int):
+    pygame.gfxdraw.aaellipse(surface, int(centerPoint.x), int(centerPoint.y), radiusX, radiusY, colour)
+    pygame.gfxdraw.filled_ellipse(surface, int(centerPoint.x), int(centerPoint.y), radiusX + 1, radiusY + 1, colour)
 
 
-def line(surface: pygame.Surface, color: pygame.Color, startPoint: Vector2, endPoint: Vector2, thickness: int = 1):
+def line(surface: pygame.Surface, colour: pygame.Color, startPoint: Vector2, endPoint: Vector2, thickness: int = 1):
     if (thickness > 1):
-        pygame.draw.line(surface, color, startPoint, endPoint, thickness)
+        pygame.draw.line(surface, colour, startPoint, endPoint, thickness)
     else:
-        pygame.draw.aaline(surface, color, (startPoint.x, startPoint.y), (endPoint.x, endPoint.y))
+        pygame.draw.aaline(surface, colour, (startPoint.x, startPoint.y), (endPoint.x, endPoint.y))
 
 
-def lines(surface: pygame.Surface, color: pygame.Color, points: list[Vector2], thickness: int = 1):
+def lines(surface: pygame.Surface, colour: pygame.Color, points: list[Vector2], thickness: int = 1):
     if (thickness > 1):
-        pygame.draw.lines(surface, color, False, points, thickness)
+        pygame.draw.lines(surface, colour, False, points, thickness)
     else:
-        pygame.draw.aalines(surface, color, False, points)
+        pygame.draw.aalines(surface, colour, False, points)
 
 
-def pixel(surface: pygame.Surface, color: pygame.Color, point: Vector2):
-    pygame.gfxdraw.pixel(surface, int(point.x), int(point.y), color)
+def pixel(surface: pygame.Surface, colour: pygame.Color, point: Vector2):
+    pygame.gfxdraw.pixel(surface, int(point.x), int(point.y), colour)
 
 
-def polygon(surface: pygame.Surface, color: pygame.Color, points: list[Vector2], thickness: int = 1):
+def polygon(surface: pygame.Surface, colour: pygame.Color, points: list[Vector2], thickness: int = 1):
     if (thickness > 1):
-        pygame.draw.polygon(surface, color, points, thickness)
+        pygame.draw.polygon(surface, colour, points, thickness)
     else:
-        pygame.gfxdraw.aapolygon(surface, points, color)
+        pygame.gfxdraw.aapolygon(surface, points, colour)
 
 
-def filled_polygon(surface: pygame.Surface, color: pygame.Color, points: list[Vector2]):
-    pygame.gfxdraw.aapolygon(surface, points, color)
-    pygame.gfxdraw.filled_polygon(surface, points, color)
+def filled_polygon(surface: pygame.Surface, colour: pygame.Color, points: list[Vector2]):
+    pygame.gfxdraw.aapolygon(surface, points, colour)
+    pygame.gfxdraw.filled_polygon(surface, points, colour)
 
 
-def rectangle(surface: pygame.Surface, color: pygame.Color, topLeftPoint: Vector2, width: int, height: int, thickness: int = 1):
-    pygame.draw.rect(surface, color, (int(topLeftPoint.x), int(topLeftPoint.y), width, height), thickness)
+def rectangle(surface: pygame.Surface, colour: pygame.Color, topLeftPoint: Vector2, width: int, height: int, thickness: int = 1):
+    pygame.draw.rect(surface, colour, (int(topLeftPoint.x), int(topLeftPoint.y), width, height), thickness)
 
 
-def filled_rectangle(surface: pygame.Surface, color: pygame.Color, topLeftPoint: Vector2, width: int, height: int):
-    pygame.gfxdraw.box(surface, (int(topLeftPoint.x), int(topLeftPoint.y), width, height), color)
+def filled_rectangle(surface: pygame.Surface, colour: pygame.Color, topLeftPoint: Vector2, width: int, height: int):
+    pygame.gfxdraw.box(surface, (int(topLeftPoint.x), int(topLeftPoint.y), width, height), colour)
 
 
 def test(surface: pygame.Surface):
