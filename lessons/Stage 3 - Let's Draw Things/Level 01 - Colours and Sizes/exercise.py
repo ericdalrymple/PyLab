@@ -1,16 +1,16 @@
 from pylab import *
 
-#                     STAGE 3                     #
-# =============================================== #
-# ======== LESSON 01: Colours and Sizes ========= #
-# =============================================== #
+# ======================================================================================= #
+# EXERCISE:
+#
+#   Change the game window:
+#       - Change the title, think of a cool name for a game.
+#       - Change the background color by changing the 'red' 'green' 'blue' variables, try to make purple.
+#       - Change the size, try to make the window the same size as your phone screen. 
+#
+# ======================================================================================= #
 
-# Welcome to Stage 2! Now things are getting really exciting! For the first time, our
-# program willdraw something instead of just writing.
-
-# Let's pick a title for our game.
 game_title = "My Game"
-
 
 # Let's pick a background colour for our screen. All colours on a computer can be made
 # by mixing red, green, and blue. A colour written this way is called an RGB colour (RedGreenBlue).

@@ -47,14 +47,3 @@ Game().launch(
     title = game_title,
     backgroundColor = colour,
     windowSize = screen_size)
-
-
-# ======================================================================================= #
-# EXERCISE:
-#
-#   Change the game window:
-#       - Change the title, think of a cool name for a game.
-#       - Change the background color by changing the 'red' 'green' 'blue' variables, try to make purple.
-#       - Change the size, try to make the window the same size as your phone screen. 
-#
-# ======================================================================================= #
