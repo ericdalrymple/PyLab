@@ -1,4 +1,22 @@
 # PyLab
+## Overview
+PyLab is an attempt at providing an evironment conducive to introducing Python to a younger audience via a very basic game engine with several streamlined interfaces. Learners can use more advnaced interfaces to do the same things as they learn more and more of the basics of Python.
+
+The project contains the following:
+* <ins>__PyLab Hub:__</ins> A batch file that provides basic options for browsing lessons, creating small games from a template, sharing games created with PyLab with friends with zero setup.
+
+* <ins>__Lessons:__</ins> A series of lessons and exercises That gradually covers the basics of Python and game making.
+
+* <ins>__PyLab Engine:__</ins> A rudimentary 2D game engine built on top the [Pygame](https://www.pygame.org). It provides multiple ways of achieving the same outcomes. Beginners are expected to do things the more basic yet less scalable way and can gradually use the more advanced more powerful interfaces as they learn.
+    * __Beginners:__ Draw game contents directly and manipulate them using variables. All callbacks (draw, update, input handlers, etc.) and variables would typically be in the main module.
+
+    * __Intermediate:__ Use objects to encapsulate behaviour and drawing of game elements.
+
+    * __Advanced:__ Add components to encapsulate behaviours and drawing and combine them into entities to define game elements. 
+
+## Requirements
+- __Windows 10/11:__ - This project could support other operating systems fairly easily, but is limited to Windows for simplicity.
+
 ## Setup
 ### 1 - Setup the PyLab package
 In this step, we’ll download “PyLab”, which is a collection of scripts that we’ll use to learn and practice programming in Python. It also includes the installers for Python and VS Code and a setup script to configure your environment for development.
@@ -15,6 +33,7 @@ In this step, we’ll download “PyLab”, which is a collection of scripts tha
 
     * Setup is now complete, we’re almost ready to run some code.
   
+---
 
 ### 2 - Configure Visual Studio Code
 #### 2.1 - Open Visual Studio Code
@@ -39,5 +58,8 @@ Let’s open PyLab in Visual Studio Code and make sure we can run our scripts pr
 
 * Visual Studio Code should switch to the Terminal view in the bottom pane and should print the message “Hello World!”.</br></br><img width="1200" height="800" alt="Untitled" src="https://github.com/user-attachments/assets/db8f521f-95d7-43a0-93ff-98a3652f1a92" />
 
+---
+
 ### 3 - Have Fun!
 You’re now ready to start programming in Python! Happy learning!
+
