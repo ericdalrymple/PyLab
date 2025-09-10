@@ -69,7 +69,7 @@ In order to use the various features of PyLab, double-click or otherwise run the
 
 <img width="808" height="362" alt="image" src="https://github.com/user-attachments/assets/45963522-ecad-4603-b4d6-bacf7f93925f" />
 
-To choose an option, you simply type the number assigned to it and hit `Enter`. In order to exit the PyLab Nub, simply select the "Nothing" option.
+To choose an option, you simply type the number assigned to it and hit `Enter`. To exit the PyLab Hub, simply select the "Nothing" option.
 
 In the rest of this section, we will go over the options and what they do in a bit more detail.
 
@@ -89,3 +89,35 @@ When this option is selected, PyLab Hub will show a list of available games that
 <img width="808" height="419" alt="image" src="https://github.com/user-attachments/assets/d69dfc7c-c959-491d-b367-fd62cf503faa" />
 
 Here we have 4 available games: Avalanche, DemoGame, Froyo and Melting Point. And the user has typed `d`. Because "DemoGame" is the first game in the list that starts with 'd', "DemoGame" will be selected when the user hits `Enter`.
+
+### 4. Share a game
+Choosing this option will create a .zip file that contains a game chosen by the user. This zip file can then be sent to someone else, who can unzip the file and run the game in Windows with no other setup. This option exists so that students can share the things they make with other people, which can hopefully provide motivation to make cool things and get ideas from their friends.
+
+When selecting this option, the user will be asked to select a game among those already created the same way they would for opening a game project (see previous sub-section).
+
+Let's look at an example and decide to share the game "Froyo":
+
+<img width="808" height="419" alt="image" src="https://github.com/user-attachments/assets/b19d2240-2c48-4cde-8a03-8cc92b23c0ec" />
+
+
+Hitting `Enter` on the screen above will start the "sharing" process for the game "Froyo" because it is the first game in the list starting with `f`. This will take some time depending on the size of the game. Please be patient; the screen will tell you when the job is done.
+
+<img width="808" height="476" alt="image" src="https://github.com/user-attachments/assets/45e5ca7b-069b-4ac1-96c8-863bcfe1e0a1" />
+
+
+When complete, PyLab will open a window showing the zip file.
+
+<img width="769" height="356" alt="image" src="https://github.com/user-attachments/assets/4a97b983-518f-45c1-b459-22f52ae996b4" />
+
+
+This file can then be sent to someone else. To play the game, the person must extract (unzip) the zip file. One way of doing this is right-clicking the file and picking "Extract All...".
+
+<img width="690" height="484" alt="image" src="https://github.com/user-attachments/assets/b0ebfd69-6e6c-496a-a239-b1dd84f48892" />
+
+### 5. Nothing
+Selecting this option will close the PyLab Hub.
+
+
+Once unzipped, the following files will be available. Now the person can just double-click `Froyo.exe` to run the game.
+
+<img width="668" height="269" alt="image" src="https://github.com/user-attachments/assets/ece81fbb-462e-4f6e-b58d-25e792c3db57" />
