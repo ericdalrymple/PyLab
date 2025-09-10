@@ -65,7 +65,7 @@ You’re now ready to start programming in Python! Happy learning!
 
 ## Using PyLab
 ### Launching PyLab Hub
-In order to use the various features of PyLab, double-click or otherwise run the PyLab.bat file in the topmost directory of the PyLab project. Upon doing this, you will be presented with a menu of options.
+In order to use the various features of PyLab, double-click or otherwise run the `PyLab.bat` file in the topmost directory of the PyLab project. Upon doing this, you will be presented with a menu of options.
 
 <img width="808" height="362" alt="image" src="https://github.com/user-attachments/assets/45963522-ecad-4603-b4d6-bacf7f93925f" />
 
@@ -114,10 +114,11 @@ This file can then be sent to someone else. To play the game, the person must ex
 
 <img width="690" height="484" alt="image" src="https://github.com/user-attachments/assets/b0ebfd69-6e6c-496a-a239-b1dd84f48892" />
 
-### 5. Nothing
-Selecting this option will close the PyLab Hub.
-
 
 Once unzipped, the following files will be available. Now the person can just double-click `Froyo.exe` to run the game.
 
 <img width="668" height="269" alt="image" src="https://github.com/user-attachments/assets/ece81fbb-462e-4f6e-b58d-25e792c3db57" />
+
+
+### 5. Nothing
+Selecting this option will close the PyLab Hub.
