@@ -63,3 +63,29 @@ Let’s open PyLab in Visual Studio Code and make sure we can run our scripts pr
 ### 3 - Have Fun!
 You’re now ready to start programming in Python! Happy learning!
 
+## Using PyLab
+### Launching PyLab Hub
+In order to use the various features of PyLab, double-click or otherwise run the PyLab.bat file in the topmost directory of the PyLab project. Upon doing this, you will be presented with a menu of options.
+
+<img width="808" height="362" alt="image" src="https://github.com/user-attachments/assets/45963522-ecad-4603-b4d6-bacf7f93925f" />
+
+To choose an option, you simply type the number assigned to it and hit `Enter`. In order to exit the PyLab Nub, simply select the "Nothing" option.
+
+In the rest of this section, we will go over the options and what they do in a bit more detail.
+
+### 1. Open Lessons
+Choosing this option will open the "lessons" directory in Visual Studio Code, letting a student browse the various coding lessons, which they can run individually, without any other distractions.
+
+### 2. Create a new game
+Choosing this option will will create the necessary files and directories for a new simple 2D game using the PyLab engine and opens the game project in Visual Studio Code once created.
+
+After this option is selected, the user will be prompted to enter a name for the game they wish to create. If the name matches a previously created game, the user will be asked to choose a different one.
+
+### 3. Open an existing game
+Choosing this option will open the project for a previously created game in Visual Studio Code.
+
+When this option is selected, PyLab Hub will show a list of available games that were previously created using the option above. To select the desired game, type any part of its name an hit `Enter`. PyLab will choose the first game down the list starting with what was typed. Let's look at an example:
+
+<img width="808" height="419" alt="image" src="https://github.com/user-attachments/assets/d69dfc7c-c959-491d-b367-fd62cf503faa" />
+
+Here we have 4 available games: Avalanche, DemoGame, Froyo and Melting Point. And the user has typed `d`. Because "DemoGame" is the first game in the list that starts with 'd', "DemoGame" will be selected when the user hits `Enter`.
