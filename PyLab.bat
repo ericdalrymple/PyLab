@@ -164,7 +164,7 @@ set archive=%sharedir%\%projname%.zip
 if exist "%archive%" (
     del "%archive%"
 )
-7z a -tzip "%archive%" "%stagingdir%\dist\%projname%\*" >nul 2>&1
+powershell Compress-Archive -Path "%stagingdir%\dist\%projname%\*" -DestinationPath "%archive%" >nul 2>&1
 explorer "%sharedir%"
 echo.
 goto choice

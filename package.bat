@@ -28,7 +28,7 @@ copy "%rootDir%update.bat" "%packDir%update.bat" /Y >nul 2>&1
 
 :: Zip the package contents
 echo Packaging files to "%rootDir%%packName%"... 
-7z a -tzip "%rootDir%%packName%" "%packDir%*" >nul 2>&1
+powershell Compress-Archive -Path "%packDir%*" -DestinationPath "%rootDir%%packName%" >nul 2>&1
 
 :: Remove the packaging directory
 echo Cleaning up staging directory...
