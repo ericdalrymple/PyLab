@@ -27,7 +27,7 @@ In this step, we’ll download “PyLab”, which is a collection of scripts tha
 3. (Optional) Delete the zip file once you’ve extracted the files from it.
 
 4. Double-click on the setup.bat file inside the PyLab folder.
-    * This will download and run the installers for __Python 3.13__, __7-Zip__, and __Visual Studio Code__. Follow the default setup instructions.
+    * This will download and run the installers for __Python 3.13__ and __Visual Studio Code__. Follow the default setup instructions.
 
     * After the installers, the script will do more Python-related setup. Once the setup is completed, press any key to close the terminal.
 
@@ -122,3 +122,4 @@ Once unzipped, the following files will be available. Now the person can just do
 
 ### 5. Nothing
 Selecting this option will close the PyLab Hub.
+
