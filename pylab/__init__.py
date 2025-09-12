@@ -1,3 +1,10 @@
+# Pygame
+import pygame
+
+Colour = pygame.Color
+Surface = pygame.Surface
+Vector2 = pygame.Vector2
+
 # Core
 import pylab.abstractentity
 import pylab.component
