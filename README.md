@@ -37,7 +37,7 @@ In this step, we’ll download “PyLab”, which is a collection of scripts tha
 
 ### 2 - Configure Visual Studio Code
 #### 2.1 - Open Visual Studio Code
-You should now be able to search for and open Visual Studio Code from your taskbar.
+You should now be able to search for and open Visual Studio Code from your Start Menu.
 
 #### 2.2 - Install the Python extension
 Installing the Python extension for Visual Studio Code will let Visual Studio Code run and debug your Python scripts and will provide handy features like auto-complete, syntax colouring, and highlighting errors and warnings as you type code
@@ -122,4 +122,5 @@ Once unzipped, the following files will be available. Now the person can just do
 
 ### 5. Nothing
 Selecting this option will close the PyLab Hub.
+
 
