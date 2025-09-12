@@ -7,7 +7,7 @@ set packDir=%rootDir%.tmp\
 
 set packName=.packaged\PyLab.zip
 
-:: Ensure .package directory exists and clean.
+:: Ensure .tmp directory exists and clean.
 if not exist "%packDir%" (
     mkdir "%packDir%"
 ) else (
@@ -27,7 +27,7 @@ copy "%rootDir%update.bat" "%packDir%update.bat" /Y >nul 2>&1
 
 :: Zip the package contents
 echo Packaging files to "%rootDir%%packName%"... 
-powershell Compress-Archive -Path "%packDir%*" -DestinationPath "%rootDir%%packName%" >nul 2>&1
+powershell Compress-Archive -Path "%packDir%*" -DestinationPath "%rootDir%%packName%" -Force >nul 2>&1
 
 :: Remove the packaging directory
 echo Cleaning up staging directory...
