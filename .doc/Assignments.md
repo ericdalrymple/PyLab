@@ -1,0 +1,12 @@
+## Possible Assignments
+- [ ] Change the background to match a specified colour.
+- [ ] Write your name using lines.
+- [ ] Make a picture using shapes.
+- [ ] Draw your map using lines and shapes.
+- [ ] Print something when you click
+- [ ] Print something when you type a key.
+- [ ] Draw something where you clicked
+- [ ] Draw something when you type a specific key.
+- [ ] Make something move over time.
+- [ ] Make a screensaver using different shapes and movements.
+- [ ] Make something move when you press a button.
