@@ -15,7 +15,8 @@ echo 1. Open lessons
 echo 2. Create a new game
 echo 3. Open an existing game
 echo 4. Share a game
-echo 5. Nothing
+echo 5. Pick a colour
+echo 6. Nothing
 echo.
 
 
@@ -33,6 +34,8 @@ if "%choice%"=="1" (
 ) else if "%choice%"=="4" (
     goto projshare
 ) else if "%choice%"=="5" (
+    goto colour
+) else if "%choice%"=="6" (
     echo Exiting...
     goto finish
 ) else (
@@ -168,6 +171,14 @@ powershell Compress-Archive -Path "%stagingdir%\dist\%projname%\*" -DestinationP
 explorer "%sharedir%"
 echo.
 goto choice
+
+
+:colour
+echo Launching colour picker...
+set colurl=https://colorspicker.net/
+explorer "%colurl%"
+goto choice
+
 
 :finish
 
