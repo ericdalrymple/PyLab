@@ -66,6 +66,11 @@ if "%projname%" equ "" (
 )
 :: Create the project directory
 set projdir=%~dp0games\%projname%
+if exist "%projdir%" (
+    echo A game with the same name already exists, please choose a different name.
+    echo.
+    goto projcreate
+)
 mkdir "%projdir%"
 :: Copy the template files
 robocopy "%~dp0.templates\tinygame" "%projdir%" /E >nul 2>&1
