@@ -1,5 +1,5 @@
-import pygame.gfxdraw as draw
-from pylab import *
+import pylab
+import pylab.draw as draw
 
 #                     STAGE 3                     #
 # =============================================== #
@@ -14,8 +14,8 @@ from pylab import *
 # Here is where we can put objects in our game.
 # ======================================================================================= #
 def on_start(self):
-    self.world.add_objects(MouseDisplay())
-    
+    self.world.add_objects(pylab.MouseDisplay())
+
 def on_draw(self, surface):
 
     # Draw a blue circle of radius 20 at x=400 and y=300
@@ -27,13 +27,9 @@ def on_draw(self, surface):
     # Draw a red 50x50 square at x=100 and y=200
     draw.rectangle(surface, (100, 200, 50, 50), (255, 0, 0))
 
-    # Draw a purple 50x50 box at x=500 and y=100
-    draw.box(surface, (500, 100, 50, 50), (255, 0, 255))
-
 
 # Show a game window. You can use the same settings as level 11 here if you like.
-Game().launch(
+pylab.Game().launch(
     title = "My Game",
     backgroundColor = (0, 0, 0),
     windowSize = (800, 600))
-
