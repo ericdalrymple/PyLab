@@ -41,7 +41,6 @@ You should now be able to search for and open Visual Studio Code from your Start
 
 #### 2.2 - Install the Python extension
 Installing the Python extension for Visual Studio Code will let Visual Studio Code run and debug your Python scripts and will provide handy features like auto-complete, syntax colouring, and highlighting errors and warnings as you type code
-* Launch Visual Studio Code.
 * Go to the extensions tab in the left-hand bar and search for “Python”.
 * Click the “Install” button on the extension simply titled ”Python”.
 * Once the extension installation is complete, close Visual Studio Code.</br></br><img width="660" height="600" alt="VSCode Python extension screenshot" src="https://github.com/user-attachments/assets/c4998adf-076b-408b-8524-aab763914c1a" />
@@ -122,5 +121,6 @@ Once unzipped, the following files will be available. Now the person can just do
 
 ### 5. Nothing
 Selecting this option will close the PyLab Hub.
+
 
 
