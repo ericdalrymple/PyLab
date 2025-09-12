@@ -18,7 +18,6 @@ if not exist "%packDir%" (
 echo Staging files to "%packDir%"...
 set exclude_dirs=build_Windows __pycache__ >nul 2>&1
 robocopy "%rootDir%.templates" "%packDir%.templates" /E /XD %exclude_dirs% >nul 2>&1
-robocopy "%rootDir%games" "%packDir%games" /E /XD %exclude_dirs% >nul 2>&1
 robocopy "%rootDir%lessons" "%packDir%lessons" /E /XD %exclude_dirs% >nul 2>&1
 robocopy "%rootDir%pylab" "%packDir%pylab" /E /XD %exclude_dirs% >nul 2>&1
 copy "%rootDir%PyLab.bat" "%packDir%PyLab.bat" /Y >nul 2>&1
