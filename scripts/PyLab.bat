@@ -2,8 +2,12 @@
 setlocal
 
 set vscode="%LocalAppData%\Programs\Microsoft VS Code\Code.exe"
+set root=%~dp0..
 
-echo Welcome to PyLab!
+set c_b_black=[40m
+set c_f_green=[32m
+
+echo %c_b_black%%c_f_green% Welcome to PyLab!
 echo ===================================================================
 goto bootchoice
 :choice
@@ -65,7 +69,7 @@ if "%projname%" equ "" (
     goto choice
 )
 :: Create the project directory
-set projdir=%~dp0games\%projname%
+set projdir=%root%\games\%projname%
 if exist "%projdir%" (
     echo A game with the same name already exists, please choose a different name.
     echo.
@@ -73,7 +77,7 @@ if exist "%projdir%" (
 )
 mkdir "%projdir%"
 :: Copy the template files
-robocopy "%~dp0.templates\tinygame" "%projdir%" /E >nul 2>&1
+robocopy "%root%\.templates\tinygame" "%projdir%" /E >nul 2>&1
 :: Substitute the game title
 set sprojname=%projname: =%
 powershell -Command "(Get-Content '%projdir%/main.py') -replace '_T_GAME_TITLE_T_', '%projname%' | Set-Content '%projdir%/main.py'"
@@ -89,9 +93,9 @@ echo Opening an existing game...
 :: List projects in the games directories and ask the user to pick one
 echo Available games:
 echo.
-cd "%~dp0games"
+cd "%root%\games"
 dir /B /AD
-cd "%~dp0"
+cd "%root%"
 echo.
 set /p projname=Enter game name: 
 if "%projname%" equ "" (
@@ -101,8 +105,8 @@ if "%projname%" equ "" (
 )
 echo.
 :: Pick the first directory name under the games directory that starts with the input string
-for /f "delims=" %%i in ('dir /B /AD "%~dp0games\%projname%*"') do (
-    set projdir=%~dp0games\%%i
+for /f "delims=" %%i in ('dir /B /AD "%root%\games\%projname%*"') do (
+    set projdir=%root%\games\%%i
     set projname=%%i
     goto selected
 )
@@ -131,15 +135,15 @@ echo Sharing a game...
 :: List projects in the games directories and ask the user to pick one
 echo Available games:
 echo.
-cd "%~dp0games"
+cd "%root%\games"
 dir /B /AD
-cd "%~dp0"
+cd "%root%"
 echo.
 set /p projname=Enter project name: 
 echo.
 :: Pick the first directory name under the games directory that starts with the input string
-for /f "delims=" %%i in ('dir /B /AD "%~dp0games\%projname%*"') do (
-    set projdir=%~dp0games\%%i
+for /f "delims=" %%i in ('dir /B /AD "%root%\games\%projname%*"') do (
+    set projdir=%root%\games\%%i
     set projname=%%i
     goto found
 )
@@ -158,13 +162,13 @@ if not exist "%stagingdir%" (
 )
 popd
 :: Create share directory
-set sharedir=%~dp0.share
+set sharedir=%root%\.share
 if not exist "%sharedir%" (
     mkdir "%sharedir%"
 )
 :: Generate executable binaries
 pushd "%stagingdir%"
-pyinstaller --noconfirm --onedir --console --name "%projname%" --add-data "%projdir%\res;res/" --collect-all "pylab"  "%projdir%\main.py" >nul 2>&1
+pyinstaller --noconfirm --onedir --console --icon "%root%\icons\pylab.ico" --name "%projname%" --add-data "%projdir%\res;res/" --collect-all "pylab"  "%projdir%\main.py" >nul 2>&1
 popd
 :: Package binaries
 echo Making shareable game bundle...
