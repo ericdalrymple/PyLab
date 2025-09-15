@@ -75,7 +75,7 @@ class Game(pylab.input.InputListener):
     
 
     # Public
-    def launch(self, title, backgroundColor : tuple, windowSize : tuple):
+    def launch(self, title, backgroundColor : tuple, windowSize : tuple, iconPath : str = ""):
         # Game Settings
         fps = 60
         viewport = pygame.Surface(windowSize, pygame.SRCALPHA, 32)
@@ -85,6 +85,10 @@ class Game(pylab.input.InputListener):
         pygame.display.set_caption(title)
         screen = pygame.display.set_mode(windowSize)
         clock = pygame.time.Clock()
+
+        if len(iconPath) > 0:
+            img = pygame.image.load(iconPath)
+            pygame.display.set_icon(img)
 
         # Input init
         self.input = pylab.InputDispatcher(0.1)
