@@ -168,16 +168,23 @@ if not exist "%sharedir%" (
 )
 :: Generate executable binaries
 pushd "%stagingdir%"
-pyinstaller --noconfirm --onedir --console --icon "%root%\icons\pylab.ico" --name "%projname%" --add-data "%projdir%\res;res/" --collect-all "pylab"  "%projdir%\main.py" >nul 2>&1
+start /B /WAIT pyinstaller --noconfirm --onedir --console --icon "%root%\icons\pylab.ico" --name "%projname%" --add-data "%projdir%\res;res/" --collect-all "pylab"  "%projdir%\main.py" >nul 2>&1
 popd
+
 :: Package binaries
 echo Making shareable game bundle...
-set archive=%sharedir%\%projname%.zip
+set archive_file=%projname%.zip
+set archive=%sharedir%\%archive_file%
 if exist "%archive%" (
     del "%archive%"
 )
+
+:: Pause here to let pyinstaller process spin down
+timeout /t 5 /nobreak >nul 2>&1
+
 powershell Compress-Archive -Path "%stagingdir%\dist\%projname%\*" -DestinationPath "%archive%" >nul 2>&1
-explorer "%sharedir%"
+echo Project "%projname%" is ready to share! Send "%archive_file%" to a friend.
+explorer "%sharedir%" 
 echo.
 goto choice
 
