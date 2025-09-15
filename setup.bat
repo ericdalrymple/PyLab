@@ -6,31 +6,42 @@ if not exist "%~dp0.setup" (
     mkdir ""%~dp0.setup"
 )
 
-pause
+echo.
+echo "=================> Creating PyLab Hub link..."
+start /B /WAIT cmd /C ".\scripts\CreateShortcuts.bat"
 
 echo.
 echo "=================> Installing Python..."
 
+python --version >nul 2>&1
+if errorlevel 0 (
+    echo Python is already installed; skipping.
+    goto pythonskip
+)
 echo "Securing Python installer..."
 curl "https://www.python.org/ftp/python/3.13.2/python-3.13.2-amd64.exe" -o .\.setup\python-3.13.2-amd64.exe
 echo "Launching Python installer..."
 start /wait .\.setup\python-3.13.2-amd64.exe
 echo "Python installer terminated."
-
+:pythonskip
 
 
 echo.
 echo.
 echo.
 echo "=================> Installing Visual Studio Code..."
-
+if exist "%LocalAppData%\Programs\Microsoft VS Code\Code.exe" goto vscodeskip
+if exist "%CommonProgramFiles%\Microsoft VS Code\Code.exe" goto vscodeskip
+if exist "%COMMONPROGRAMFILES(x86)%\Microsoft VS Code\Code.exe" goto vscodeskip
 echo "Securing VSCode installer..."
 curl -L -o .\.setup\VSCodeUserSetup-x64-1.98.2.exe "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
 echo "Launching VSCode installer..."
 start /wait .\.setup\VSCodeUserSetup-x64-1.98.2.exe
 echo "VSCode installer terminated."
-
-
+goto vscodedone
+:vscodeskip
+echo Visual Studio Code is already installed; skipping.
+:vscodedone
 
 echo.
 echo.
@@ -82,8 +93,14 @@ echo.
 echo.
 echo "=================> Installing pip..."
 
+pip --version >nul 2>&1
+if errorlevel 0 (
+    echo pip is already installed; skipping.
+    goto pipskip
+)
 curl https://bootstrap.pypa.io/get-pip.py -o .\.setup\get-pip.py
 python .\.setup\get-pip.py
+:pipskip
 
 
 echo.
@@ -99,3 +116,5 @@ echo.
 echo "Setup complete!"
 echo.
 pause
+
+endlocal
