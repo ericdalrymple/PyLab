@@ -1,14 +1,11 @@
-import pygame
 import pylab
 import pylab.drawing.colours as colours
 import pylab.drawing.shapes as shapes
 
 
-
 Title = "_T_GAME_TITLE_T_"
 BackgroundColour = (94, 94, 94)     # (red, green, blue)
 WindowSize = (800, 600)             # (x, y)
-
 
 
 # ======================================================================================= #
@@ -80,7 +77,9 @@ def on_mouse_move(game, pos):
 # ======================================================================================= #
 # Launch the game.
 # ======================================================================================= #
+IconPath = pylab.res_path("res/icons/pylab.png")
 pylab.Game().launch(
     title=Title,
     backgroundColor = BackgroundColour,
-    windowSize = WindowSize)
+    windowSize = WindowSize,
+    iconPath = IconPath)
