@@ -1,9 +1,12 @@
 # Pygame
 import pygame
 
-Colour = pygame.Color
 Surface = pygame.Surface
-Vector2 = pygame.Vector2
+
+from typing import Tuple
+
+Colour = Tuple[int, int, int]
+Point = Tuple[int, int]
 
 # Core
 import pylab.abstractentity
