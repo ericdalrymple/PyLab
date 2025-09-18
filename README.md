@@ -6,7 +6,7 @@
 * [Acknowledgements](#acknowledgements)
 * [Overview](#overview)
 * [Requirements](#requirements)
-* [Setup](Setup)
+* [Setup](#setup)
    * [1 - Setup the PyLab package](#1---setup-the-pylab-package)
    * [2 - Configure Visual Studio Code](#2---configure-visual-studio-code)
       * [2.1 - Open Visual Studio Code](#21---open-visual-studio-code)
@@ -149,6 +149,7 @@ Once unzipped, the following files will be available. Now the person can just do
 
 ### 5. Nothing
 Selecting this option will close the PyLab Hub.
+
 
 
 
