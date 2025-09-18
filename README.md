@@ -3,6 +3,7 @@
 # PyLab
 ## Acknowledgements
 * PyLab icon: [Beaker icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/beaker)
+* PyLab core functionality: [Pygame](https://www.pygame.org)
 
 ## Overview
 PyLab is an attempt at providing an evironment conducive to introducing Python to a younger audience via a very basic game engine with several streamlined interfaces. Learners can use more advnaced interfaces to do the same things as they learn more and more of the basics of Python.
@@ -128,6 +129,7 @@ Once unzipped, the following files will be available. Now the person can just do
 
 ### 5. Nothing
 Selecting this option will close the PyLab Hub.
+
 
 
 
