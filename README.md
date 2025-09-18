@@ -19,11 +19,13 @@
    * [2. Create a new game](#2-create-a-new-game)
    * [3. Open an existing game](#3-open-an-existing-game)
    * [4. Share a game](#4-share-a-game)
-   * [5. Nothing](#5-nothing)
+   * [5. Pick a colour](#5-pick-a-colour)
+   * [6. Nothing](#6-nothing)
 
 ## Acknowledgements
 * PyLab icon: [Beaker icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/beaker)
 * PyLab core functionality: [Pygame](https://www.pygame.org)
+* Colour picker: [colorspicker.net](https://colorspicker.net/)
 
 ## Overview
 PyLab is an attempt at providing an evironment conducive to introducing Python to a younger audience via a very basic game engine with several streamlined interfaces. Learners can use more advnaced interfaces to do the same things as they learn more and more of the basics of Python.
@@ -147,8 +149,13 @@ Once unzipped, the following files will be available. Now the person can just do
 <img width="668" height="269" alt="image" src="https://github.com/user-attachments/assets/ece81fbb-462e-4f6e-b58d-25e792c3db57" />
 
 
-### 5. Nothing
+### 5. Pick a colour
+This option will launch a web-based colour picker that will let you see the RGB values for colours you might want to use in your project. The site currently used is [colorspicker.net](https://colorspicker.net/)
+
+
+### 6. Nothing
 Selecting this option will close the PyLab Hub.
+
 
 
 
