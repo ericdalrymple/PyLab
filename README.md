@@ -31,7 +31,7 @@ In this step, we’ll download “PyLab”, which is a collection of scripts tha
 
 3. (Optional) Delete the zip file once you’ve extracted the files from it.
 
-4. Double-click on the setup.bat file inside the PyLab folder.
+4. Double-click on the `setup.bat` file inside the PyLab folder.
     * This will download and run the installers for __Python 3.13__ and __Visual Studio Code__. Follow the default setup instructions.
 
     * After the installers, the script will do more Python-related setup. Once the setup is completed, press any key to close the terminal.
@@ -52,7 +52,7 @@ Installing the Python extension for Visual Studio Code will let Visual Studio Co
 
 #### 2.3 - Test your dev environment
 Let’s open PyLab in Visual Studio Code and make sure we can run our scripts properly.
-* Double-click the `PyLab.bat` file in your PyLab folder.
+* Launch PyLab from your Start Menu **OR** double-click the PyLab shortcut in your PyLab folder.
 
 * You will be presented with a list of options. Choose `1. Open lessons` options by typing __1__ and pressing __Enter__.</br></br><img width="1115" height="322" alt="image" src="https://github.com/user-attachments/assets/be9d84a9-f583-486e-a437-9cddfdc3e0b1" />
 
@@ -69,21 +69,23 @@ You’re now ready to start programming in Python! Happy learning!
 
 ## Using PyLab
 ### Launching PyLab Hub
-In order to use the various features of PyLab, double-click or otherwise run the `PyLab.bat` file in the topmost directory of the PyLab project. Upon doing this, you will be presented with a menu of options.
+To use the various features of PyLab, launch PyLab from your Start Menu **OR** double-click PyLab shortcut in the directory where PyLab is installed.
+
+After doing this, you will see a menu of options.
 
 <img width="808" height="362" alt="image" src="https://github.com/user-attachments/assets/45963522-ecad-4603-b4d6-bacf7f93925f" />
 
-To choose an option, you simply type the number assigned to it and hit `Enter`. To exit the PyLab Hub, simply select the "Nothing" option.
+To choose an option, type the number assigned to it and hit `Enter`. To exit the PyLab Hub, select the "Nothing" option.
 
 In the rest of this section, we will go over the options and what they do in a bit more detail.
 
 ### 1. Open Lessons
-Choosing this option will open the "lessons" directory in Visual Studio Code, letting a student browse the various coding lessons, which they can run individually, without any other distractions.
+Choosing this option will open the "lessons" directory in Visual Studio Code, letting you browse the various coding lessons. These lessons can be run individually without other distractions.
 
 ### 2. Create a new game
-Choosing this option will will create the necessary files and directories for a new simple 2D game using the PyLab engine and opens the game project in Visual Studio Code once created.
+Choosing this option will create the files and directories needed for a basic new 2D game using the PyLab engine and opens the game project in Visual Studio Code once created.
 
-After this option is selected, the user will be prompted to enter a name for the game they wish to create. If the name matches a previously created game, the user will be asked to choose a different one.
+After this option is chosen, you will be prompted to enter a name for the game they want to create. If the name matches a previously created game, you will be asked to choose a different one.
 
 ### 3. Open an existing game
 Choosing this option will open the project for a previously created game in Visual Studio Code.
@@ -126,6 +128,7 @@ Once unzipped, the following files will be available. Now the person can just do
 
 ### 5. Nothing
 Selecting this option will close the PyLab Hub.
+
 
 
 
