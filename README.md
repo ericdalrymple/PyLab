@@ -1,6 +1,26 @@
 <img align="left" width="70" height="70" src="https://raw.githubusercontent.com/ericdalrymple/PyLab/refs/heads/main/res/icons/pylab.png" style="float:left;">
 
 # PyLab
+
+## Table of Contents
+* [Acknowledgements](#acknowledgements)
+* [Overview](#overview)
+* [Requirements](#requirements)
+* [Setup](Setup)
+   * [1 - Setup the PyLab package](#1---setup-the-pylab-package)
+   * [2 - Configure Visual Studio Code](#2---configure-visual-studio-code)
+      * [2.1 - Open Visual Studio Code](#21---open-visual-studio-code)
+      * [2.2 - Install the Python extension](#22---install-the-python-extension)
+      * [2.3 - Test your dev environment](#23---test-your-dev-environment)
+   * [3 - Have Fun!](#3---have-fun)
+* [Using PyLab](#using-pylab)
+   * [Launching PyLab Hub](#launching-pylab-hub)
+   * [1. Open Lessons](#1-open-lessons)
+   * [2. Create a new game](#2-create-a-new-game)
+   * [3. Open an existing game](#3-open-an-existing-game)
+   * [4. Share a game](#4-share-a-game)
+   * [5. Nothing](#5-nothing)
+
 ## Acknowledgements
 * PyLab icon: [Beaker icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/beaker)
 * PyLab core functionality: [Pygame](https://www.pygame.org)
@@ -129,6 +149,7 @@ Once unzipped, the following files will be available. Now the person can just do
 
 ### 5. Nothing
 Selecting this option will close the PyLab Hub.
+
 
 
 
